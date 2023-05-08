@@ -33,7 +33,16 @@ function Cube(props) {
       0.1
     );
 
+
+
   });
+
+
+    useThree(({camera}) => {
+    camera.position.set(0, 10,5)
+    camera.rotation.set(0,30,0);
+    
+      });
 
   return (
     <group ref={group} {...props} dispose={null} >
@@ -65,7 +74,8 @@ export default function App() {
 
 
   return (
-    <Canvas camera={{ position: [0, 50, 10], rotation: [0, 0, 0], fov: 25 }}>
+    <Canvas camera={{ position: [0, 0, 0], }}>
+
 
 
 
