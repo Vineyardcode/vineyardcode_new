@@ -1,16 +1,20 @@
 import * as THREE from "three";
 import React, { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, Environment, useGLTF, ContactShadows, OrbitControls } from '@react-three/drei';
 import './App.css';
+import Portfolio from "./pages/PortfolioPage";
+
+
 
 function Cube(props) {
+
   const group = useRef();
+  const mesh = useRef();
 
-
-  const { nodes, materials } = useGLTF("/cube.glb");
 
   useFrame((state) => {
+
     const t = state.clock.getElapsedTime();
 
     group.current.rotation.x = THREE.MathUtils.lerp(
@@ -28,19 +32,26 @@ function Cube(props) {
       Math.sin(t / 8) / 20,
       0.1
     );
+
   });
 
   return (
     <group ref={group} {...props} dispose={null} >
 
-      <mesh position={[0, 0, 0]}>
-         <boxGeometry args={[10, 1, 10]} />
-         <meshStandardMaterial color={'#6f6f00'} metalness={0} roughness={0} transmission={1}/>
-          <Html className="content"  transform occlude="blending" rotation={[-Math.PI/2,0,0]} position={[0,0.51,0]}>
-            <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
-              <p>Hello mom I am on the computer</p>
-              <button onClick={alert}>Alert</button>
-            </div>
+      <mesh position={[0, 0, 0]} ref={mesh}>
+         <boxGeometry args={[15, 1, 17]} />
+          <meshStandardMaterial 
+          
+              color={0xffffff}
+
+          />
+          <Html 
+            className="content"  
+            transform occlude="blending" 
+            rotation={[-Math.PI/2,0,0]} 
+            position={[0,0.51,0]}
+          >
+          <Portfolio />
           </Html>
       </mesh>
 
@@ -48,19 +59,28 @@ function Cube(props) {
   );
 }
 
-
+//camera={{ position: [0, -30, 30], rotateOnAxis: [Math.PI/2.8, 100, 0] }}
 export default function App() {
+
+
+
   return (
-    <Canvas camera={{ position: [0, 0, 30], fov: 35 }}>
-      <pointLight position={[10, 10, 10]} intensity={1.5} />
+    <Canvas camera={{ position: [0, 50, 10], rotation: [0, 0, 0], fov: 25 }}>
+
+
+
       <Suspense fallback={null}>
-        <group rotation={[Math.PI/4, 0, 0]} position={[0, 1, 0]}>
+        <group rotation={[Math.PI/2.8,0,0]} position={[0, 5, 0]}>
           <Cube />
         </group>
-        <Environment preset="city" />
+        <Environment preset="city" background />
       </Suspense>
-      <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
-      <OrbitControls enablePan={false} enableZoom={true} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} />
+
+      <ContactShadows position={[0, -5, 0]} scale={30} blur={2} far={5} />
+      <OrbitControls enablePan={true} enableZoom={true} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} />
     </Canvas>
   );
+
+
+  
 }
