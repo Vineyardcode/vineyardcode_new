@@ -23,7 +23,7 @@ main,
 .content {
   width: 600px;
   height: 680px;
-  background: transparent;
+  background: white;
   border-radius: 3px;
   overflow-y: auto;
   padding: 0;
