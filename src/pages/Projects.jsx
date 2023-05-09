@@ -3,15 +3,15 @@ import React, { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls } from '@react-three/drei';
 import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
+import { gsap } from 'gsap';
+import { refs } from "../components/Refs";
 
 
 
-const DEG45 = Math.PI / 4;
 export default function Projects() {
 
   const group = useRef();
   const mesh = useRef();
-  const cameraControlsRef = useRef(null);
 
   useFrame((state) => {
 
@@ -34,7 +34,6 @@ export default function Projects() {
     );
   });
 
-  
 
 
   return (
@@ -61,8 +60,11 @@ export default function Projects() {
                 <div className="projects-main">
 
                 <button onClick={() => {
-                      cameraControlsRef.current?.rotate(DEG45, 0, true);
-                    }}> Next </button>
+                  const currentPos = refs.cameraControlsRef.current.getPosition();
+                  gsap.to(currentPos, { duration: 2, x: refs.page5Ref.current.position.y, y:refs.page5Ref.current.position.y , z: refs.page5Ref.current.position.z, onUpdate: () => {
+                    refs.cameraControlsRef.current.setPosition(currentPos.x, currentPos.y, currentPos.z);
+                  } });
+                }}> Page5 </button>
                     
                   <div className="kanjiApp">
                     <h5>
@@ -94,7 +96,8 @@ export default function Projects() {
             </div>   
 
           </Html>
-          <CameraControls ref={cameraControlsRef} pos/>
+          <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
+
       </mesh>
     
     </group>

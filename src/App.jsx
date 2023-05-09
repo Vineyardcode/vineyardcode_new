@@ -9,41 +9,55 @@ import Stack from "./pages/Stack";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Page5 from "./pages/Page5";
+import { refs } from "./components/Refs";
 
 
-const DEG45 = Math.PI / 4;
 export default function App() {
 
+
+  const projectsRef = useRef();
+  const stackRef = useRef();
+  const contactRef = useRef();
+  const aboutRef = useRef();
+  const page5Ref = useRef();
   const cameraControlsRef = useRef(null);
 
+  useEffect(() => {
+    // Update the refs object with the actual refs
+    refs.projectsRef = projectsRef;
+    refs.stackRef = stackRef;
+    refs.contactRef = contactRef;
+    refs.aboutRef = aboutRef;
+    refs.page5Ref = page5Ref;
+    refs.cameraControlsRef = cameraControlsRef;
+  }, []);
 
 
   return (
     <Canvas>
 
 
-        <PerspectiveCamera makeDefault position={[0,5,23]} rotation={[0, 0, 0]}/>
+        <PerspectiveCamera makeDefault position={[100,0,30]} rotation={[0, 0, 0]}/>
 
         <Suspense fallback={null}>
 
-        <group rotation={[Math.PI/2,0,Math.PI/3]} position={[10,1,-10]}>
-
+        <group rotation={[Math.PI/2,0,Math.PI/3]} position={[20,1,-10]}>
           <Projects />
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[20,1,-20]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[40,1,-20]}>
           <Stack />
         </group>
           
-        <group rotation={[Math.PI/2.7,0,0]} position={[30,1,-30]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[60,1,-30]}>
           <Contact />
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[42,1,-42]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[82,1,-42]}>
           <About />
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[50,1,-50]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[100,1,-50]} ref={page5Ref}>
           <Page5 />
         </group>
 
@@ -52,8 +66,8 @@ export default function App() {
 
       <Environment preset="city" background />
       <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
+      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2}/>
 
-      <CameraControls enablePan={true} enableZoom={true} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} ref={cameraControlsRef} />
   
     </Canvas>
   );
