@@ -5,7 +5,7 @@ import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveC
 import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
 import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
-
+import NavigationButtons from "../components/NavModal";
 
 
 export default function Projects() {
@@ -36,6 +36,7 @@ export default function Projects() {
 
 
 
+
   return (
     <group ref={group} dispose={null} >
 
@@ -59,12 +60,7 @@ export default function Projects() {
 
                 <div className="projects-main">
 
-                <button onClick={() => {
-                  const currentPos = refs.cameraControlsRef.current.getPosition();
-                  gsap.to(currentPos, { duration: 2, x: refs.page5Ref.current.position.y, y:refs.page5Ref.current.position.y , z: refs.page5Ref.current.position.z, onUpdate: () => {
-                    refs.cameraControlsRef.current.setPosition(currentPos.x, currentPos.y, currentPos.z);
-                  } });
-                }}> Page5 </button>
+                <NavigationButtons />
                     
                   <div className="kanjiApp">
                     <h5>

@@ -20,7 +20,7 @@ export default function App() {
   const contactRef = useRef();
   const aboutRef = useRef();
   const page5Ref = useRef();
-  const cameraControlsRef = useRef(null);
+  const cameraControlsRef = useRef();
 
   useEffect(() => {
     // Update the refs object with the actual refs
@@ -33,27 +33,31 @@ export default function App() {
   }, []);
 
 
+
+
+  // minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} 
+
   return (
     <Canvas>
 
 
-        <PerspectiveCamera makeDefault position={[100,0,30]} rotation={[0, 0, 0]}/>
+        <PerspectiveCamera position={[20,1,-10]} rotation={[Math.PI/2.7,0,0]}/>
 
         <Suspense fallback={null}>
 
-        <group rotation={[Math.PI/2,0,Math.PI/3]} position={[20,1,-10]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[20,1,-10]} ref={projectsRef}>
           <Projects />
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[40,1,-20]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[40,1,-20]} ref={stackRef}>
           <Stack />
         </group>
           
-        <group rotation={[Math.PI/2.7,0,0]} position={[60,1,-30]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[60,1,-30]} ref={contactRef}>
           <Contact />
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[82,1,-42]}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[82,1,-42]} ref={aboutRef}>
           <About />
         </group>
 
@@ -66,9 +70,8 @@ export default function App() {
 
       <Environment preset="city" background />
       <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
-      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2}/>
+      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} set/>
 
-  
     </Canvas>
   );
 
