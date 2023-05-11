@@ -3,8 +3,9 @@ import React, { Suspense, useRef, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls } from '@react-three/drei';
 import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
+import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
-import { gsap } from "gsap";
+import NavigationButtons from "../components/NavModal";
 
 
 
@@ -53,31 +54,15 @@ export default function Page5() {
             position={[0,0.51,0]}
           >
 
-  
+          <NavigationButtons />
+
           <div className="page5">
             <h3>Page 5</h3>
             <h1>HELLO MOM ! ! !</h1>
 
           </div>
 
-          <button onClick={() => {
-                  const currentPos = refs.cameraControlsRef.current.getPosition();
-                  const target = refs.projectsRef.current.position
-                  // Adjust the height of the target position as needed
 
-                  gsap.to(currentPos, {
-                    duration: 2,
-                    x: target.x+30,
-                    y: target.y,
-                    z: target.z,
-                    onUpdate: () => {
-                      refs.cameraControlsRef.current.setPosition(currentPos.x, currentPos.y, currentPos.z);
-                      refs.cameraControlsRef.current.setLookAt(target.x+10, target.y, target.z+15, target.x, target.y, target.z, true);
-                    },
-
-                  });
-
-                }}>Projects</button>
          
           </Html>
           <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />

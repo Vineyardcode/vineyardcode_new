@@ -35,29 +35,30 @@ export default function App() {
 
 
 
-  // minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} 
 
+  
   return (
     <Canvas>
 
 
-        <PerspectiveCamera position={[20,1,-10]} rotation={[Math.PI/2.7,0,0]}/>
-
+        <PerspectiveCamera position={[30,1,-20]} rotation={[Math.PI/2.7,0,0]}/>
+        
         <Suspense fallback={null}>
 
         <group rotation={[Math.PI/2.7,0,0]} position={[20,1,-10]} ref={projectsRef}>
           <Projects />
+
         </group>
 
         <group rotation={[Math.PI/2.7,0,0]} position={[40,1,-20]} ref={stackRef}>
           <Stack />
         </group>
           
-        <group rotation={[Math.PI/2.7,0,0]} position={[60,1,-30]} ref={contactRef}>
+        <group rotation={[Math.PI/7.7,0,0]} position={[60,1,-30]} ref={contactRef}>
           <Contact />
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[82,1,-42]} ref={aboutRef}>
+        <group rotation={[Math.PI,0,0]} position={[82,100,-42]} ref={aboutRef}>
           <About />
         </group>
 
@@ -69,9 +70,8 @@ export default function App() {
         </Suspense>
 
       <Environment preset="city" background />
+      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} />
       <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
-      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} set/>
-
     </Canvas>
   );
 

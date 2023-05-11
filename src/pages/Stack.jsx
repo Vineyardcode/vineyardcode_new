@@ -3,7 +3,9 @@ import React, { Suspense, useRef, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls } from '@react-three/drei';
 import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
-
+import { gsap } from 'gsap';
+import { refs } from "../components/Refs";
+import NavigationButtons from "../components/NavModal";
 
 export default function Stack() {
 
@@ -50,6 +52,8 @@ export default function Stack() {
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.51,0]}
           >
+            
+          <NavigationButtons />
 
           <div className="stack">
             <h3>What I like <br/> to work with</h3>
