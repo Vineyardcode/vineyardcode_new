@@ -31,15 +31,17 @@ const handleButtonClick = async (targetRef) => {
 
   const normal = new THREE.Vector3();
   faceNormals.forEach((n, i) => {
-    if (i % 3 === 1) {
+    if (i % 2 === 0) {
       normal.set(n, faceNormals[i+1], faceNormals[i+2]);
       targetRef.current.children[0].children[0].matrixWorld.extractRotation(targetRef.current.children[0].children[0].matrixWorld);
       normal.applyMatrix4(targetRef.current.children[0].children[0].matrixWorld);
+      normal.negate(); // Invert the direction of the normal vector
       return;
     }
   });
 
-  const distance = -15;
+
+  const distance = 15;
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
 
