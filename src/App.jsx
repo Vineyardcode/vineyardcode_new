@@ -44,7 +44,7 @@ export default function App() {
     <Canvas>
 
 
-        <PerspectiveCamera position={[30,1,-20]} ref={cameraRef}  />
+        <PerspectiveCamera position={[30,1,-20]} ref={cameraRef} makeDefault />
         
         <Suspense fallback={null}>
 
