@@ -2,7 +2,7 @@ import * as THREE from "three";
 import React, { Suspense, useRef, useEffect, useState } from "react";
 import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls } from '@react-three/drei';
+import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls } from '@react-three/drei';
 import './App.css';
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
@@ -21,6 +21,8 @@ export default function App() {
   const aboutRef = useRef();
   const page5Ref = useRef();
   const cameraControlsRef = useRef();
+  const cameraRef = useRef()
+  const orbitControlsRef = useRef()
 
   useEffect(() => {
     // Update the refs object with the actual refs
@@ -30,8 +32,9 @@ export default function App() {
     refs.aboutRef = aboutRef;
     refs.page5Ref = page5Ref;
     refs.cameraControlsRef = cameraControlsRef;
+    refs.cameraRef = cameraRef;
+    refs.orbitControlsRef = orbitControlsRef
   }, []);
-
 
 
 
@@ -41,7 +44,7 @@ export default function App() {
     <Canvas>
 
 
-        <PerspectiveCamera position={[30,1,-20]} rotation={[Math.PI/2.7,0,0]}/>
+        <PerspectiveCamera position={[30,1,-20]} ref={cameraRef}  />
         
         <Suspense fallback={null}>
 
@@ -54,7 +57,7 @@ export default function App() {
           <Stack />
         </group>
           
-        <group rotation={[Math.PI/7.7,0,0]} position={[60,1,-30]} ref={contactRef}>
+        <group rotation={[Math.PI/7.7,0,10]} position={[60,1,-30]} ref={contactRef}>
           <Contact />
         </group>
 
@@ -70,7 +73,8 @@ export default function App() {
         </Suspense>
 
       <Environment preset="city" background />
-      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} />
+      <TrackballControls ref={orbitControlsRef} />
+      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} maxAzimuthAngle={Infinity} maxPolarAngle={Infinity} />
       <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
     </Canvas>
   );

@@ -5,4 +5,6 @@ export const refs = {
   aboutRef: null,
   page5Ref: null,
   cameraControlsRef: null,
+  cameraRef: null,
+  orbitControlsRef: null
 };

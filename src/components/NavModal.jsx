@@ -2,8 +2,7 @@ import React from 'react';
 import gsap from 'gsap';
 import { refs } from './Refs';
 import * as THREE from 'three'
-import { BufferAttribute } from 'three';
-import { Box3 } from 'three';
+
 
 
 
@@ -11,27 +10,20 @@ const handleButtonClick = async (targetRef) => {
   const currentPos = await refs.cameraControlsRef.current.getPosition();
   const target = await targetRef.current.position;
 
-
-
   const geometry = targetRef.current.children[0].children[0].geometry;
 
-  const vertices = targetRef.current.children[0].children[0].geometry.attributes.position.array;
-
-  const materialIndices = geometry.index.array;
-
   const faceNormals = targetRef.current.children[0].children[0].geometry.attributes.normal.array;
+
 
   const center = new THREE.Vector3();
   geometry.computeBoundingBox();
   geometry.boundingBox.getCenter(center);
   targetRef.current.localToWorld(center);
 
-  let maxNormalIndex = -1;
-  let maxNormalX = -Infinity;
 
   const normal = new THREE.Vector3();
   faceNormals.forEach((n, i) => {
-    if (i % 2 === 0) {
+    if (i % 2 !== 1) {
       normal.set(n, faceNormals[i+1], faceNormals[i+2]);
       targetRef.current.children[0].children[0].matrixWorld.extractRotation(targetRef.current.children[0].children[0].matrixWorld);
       normal.applyMatrix4(targetRef.current.children[0].children[0].matrixWorld);
@@ -41,14 +33,15 @@ const handleButtonClick = async (targetRef) => {
   });
 
 
+
+
+
   const distance = 15;
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
 
-  console.log(cameraPosition);
-
   gsap.to(currentPos, {
-    duration: 2,
+    duration: 1,
     x: cameraPosition.x,
     y: cameraPosition.y,
     z: cameraPosition.z,
@@ -64,9 +57,15 @@ const handleButtonClick = async (targetRef) => {
 
         true
       );
+
     },
+
   });
+console.log(refs.cameraControlsRef.current);
+  
 };
+
+
 
 const NavigationButtons = () => {
   return (

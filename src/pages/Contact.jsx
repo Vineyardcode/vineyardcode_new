@@ -54,9 +54,9 @@ export default function Contact() {
 
           <NavigationButtons />
 
-          <div className="contact">
-            <h3  className='flipLink'>Contact</h3>
-          </div>
+            <div className="contact">
+              <h3  className='flipLink'>Contact</h3>
+            </div>
 
          
           </Html>
