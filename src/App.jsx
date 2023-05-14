@@ -44,11 +44,11 @@ export default function App() {
     <Canvas>
 
 
-        <PerspectiveCamera position={[30,1,-20]} ref={cameraRef} makeDefault />
+        <PerspectiveCamera position={[0,0,5]} ref={cameraRef} />
         
         <Suspense fallback={null}>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[20,1,-10]} ref={projectsRef}>
+        <group rotation={[Math.PI/2.7,0,0]} position={[20,1,-10]} ref={projectsRef} >
           <Projects />
 
         </group>
@@ -73,7 +73,6 @@ export default function App() {
         </Suspense>
 
       <Environment preset="city" background />
-      <TrackballControls ref={orbitControlsRef} />
       <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} maxAzimuthAngle={Infinity} maxPolarAngle={Infinity} />
       <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
     </Canvas>

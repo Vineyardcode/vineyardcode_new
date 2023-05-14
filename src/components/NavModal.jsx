@@ -2,43 +2,51 @@ import React from 'react';
 import gsap from 'gsap';
 import { refs } from './Refs';
 import * as THREE from 'three'
-
+import { CameraControls } from '@react-three/drei';
 
 
 
 const handleButtonClick = async (targetRef) => {
   const currentPos = await refs.cameraControlsRef.current.getPosition();
   const target = await targetRef.current.position;
-  const geometry = targetRef.current.children[0].children[0].geometry;
-  const faceNormals = targetRef.current.children[0].children[0].geometry.attributes.normal.array;
-  const cameraControls = await refs.cameraControlsRef.current;
-  const camera = await refs.cameraRef.current;
 
+  const geometry = targetRef.current.children[0].children[0].geometry;
+
+  const positionAttribute = targetRef.current.children[0].children[0].geometry.getAttribute("position");
+  const normalAttribute = targetRef.current.children[0].children[0].geometry.getAttribute("normal");
+  const indexAttribute = targetRef.current.children[0].children[0].geometry.getIndex();
+
+  const positionArray = positionAttribute.array;
+  const normals = normalAttribute.array;
+  const indices = indexAttribute.array;
+  
 
   const center = new THREE.Vector3();
   geometry.computeBoundingBox();
   geometry.boundingBox.getCenter(center);
   targetRef.current.localToWorld(center);
 
+
   const normal = new THREE.Vector3();
-  faceNormals.forEach((n, i) => {
+  normals.forEach((n, i) => {
     if (i % 2 !== 1) {
-      normal.set(n, faceNormals[i+1], faceNormals[i+2]);
+      normal.set(n, normals[i+1], normals[i+2]);
       targetRef.current.children[0].children[0].matrixWorld.extractRotation(targetRef.current.children[0].children[0].matrixWorld);
       normal.applyMatrix4(targetRef.current.children[0].children[0].matrixWorld);
-      normal.negate(); 
+      normal.negate();
       return;
     }
   });
-
-
-  const up = await targetRef.current.up
   const distance = 15;
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
-  const radians = Math.PI / 2; // Example angle in radians
-  const degrees = radians * (180 / Math.PI); // Convert radians to degrees
+  const up = new THREE.Vector3(0, 1, 0); 
+  targetRef.current.localToWorld(up)
+  up.sub(targetRef.current.position).normalize();
 
+  refs.cameraControlsRef.current.camera.up.copy(up);
+  refs.cameraControlsRef.current.updateCameraUp()
+  refs.cameraControlsRef.current.applyCameraUp()
 
   gsap.to(currentPos, {
     duration: 1,
@@ -60,25 +68,8 @@ const handleButtonClick = async (targetRef) => {
 
     },
 
-    onComplete: () => {
-     
-      cameraControls.enabled = false; // Disable camera controls
-
-      
-
-      camera.up.set(1,0,0); // Set camera's up vector to match targetRef's up vector
-
-      cameraControls.enabled = true;
-      
-      
-    },
-
   });
-  
-console.log(up, 'maybe');
-console.log(camera.up);
 };
-
 
 
 const NavigationButtons = () => {
