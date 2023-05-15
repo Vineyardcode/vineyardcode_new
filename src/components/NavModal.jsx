@@ -38,21 +38,21 @@ const handleButtonClick = async (targetRef) => {
     faceNormals.push(faceNormal);
   }
 
-  const faceNormal = faceNormals[5]
+  // const faceNormal = faceNormals[5]
 
   const center = new THREE.Vector3();
   geometry.computeBoundingBox();
   geometry.boundingBox.getCenter(center);
   targetRef.current.localToWorld(center);
 
-  const normal = new THREE.Vector3();
+  const normal = new THREE.Vector3(0,1,0);
 
-  normal.set(faceNormal.x, faceNormal.y, faceNormal.z);
+  // normal.set(faceNormal.x, faceNormal.y, faceNormal.z);
   targetRef.current.children[0].children[0].matrixWorld.extractRotation(targetRef.current.children[0].children[0].matrixWorld);
   normal.applyMatrix4(targetRef.current.children[0].children[0].matrixWorld);
   // normal.negate();
 
-  const distance = 15;
+  const distance = 20;
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
   gsap.to(currentPos, {

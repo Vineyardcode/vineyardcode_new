@@ -35,33 +35,81 @@ export default function App() {
     refs.orbitControlsRef = orbitControlsRef
   }, []);
 
+  const radius = 50; // Radius of the circle
+  const center = new THREE.Vector3(0, 0, 0); // Center of the circle
+  const angleStep = (Math.PI * 2) / 5;
+
   return (
     <Canvas>
 
-        <PerspectiveCamera position={[0,0,5]} ref={cameraRef} />
+        <PerspectiveCamera 
+          position={[0,50,0]} 
+          ref={cameraRef}
+          rotation={[Math.PI / 2.7, 0, 0]}
+          makeDefault
+          />
         
         <Suspense fallback={null}>
         
-        <group rotation={[Math.PI/2.7,0,0]} position={[20,8,-10]} ref={projectsRef} >
-          <Projects />
-        </group>
+    <group
+      rotation={[0, angleStep * 0 + Math.PI/2, 0]}
+      position={[
+        center.x + radius * Math.cos(angleStep * 0),
+        8,
+        center.z + radius * Math.sin(angleStep * 0),
+      ]}
+      ref={projectsRef}
+    >
+      <Projects />
+    </group>
 
-        <group rotation={[Math.PI/1.5,0,Math.PI/1]} position={[40,8,-70]} ref={stackRef}>
-          <Stack />
-        </group>
-          
-        <group rotation={[Math.PI/2,Math.PI/0.6,Math.PI/2]} position={[0,20,-30]} ref={contactRef}>
-          <Contact />
-        </group>
+    <group
+      rotation={[0, angleStep * 1 + Math.PI/2, 0]}
+      position={[
+        center.x + radius * Math.cos(angleStep * 1),
+        8,
+        center.z + radius * Math.sin(angleStep * 1),
+      ]}
+      ref={stackRef}
+    >
+      <Stack />
+    </group>
 
-        <group rotation={[Math.PI/0.675,Math.PI/1.2,Math.PI/2]} position={[82,8,-42]} ref={aboutRef}>
-          <About />
-        </group>
+    <group
+      rotation={[Math.PI/1, angleStep * 2 + Math.PI/2, Math.PI/2]}
+      position={[
+        center.x + radius * Math.cos(angleStep * 2),
+        20,
+        center.z + radius * Math.sin(angleStep * 2),
+      ]}
+      ref={contactRef}
+    >
+      <Contact />
+    </group>
 
-      
-        <group rotation={[Math.PI/2.7,0,0]} position={[-20,8,-10]} ref={page5Ref}>
-          <Page5 />
-        </group>
+    <group
+      rotation={[0, angleStep * 3 + Math.PI/2, 0]}
+      position={[
+        center.x + radius * Math.cos(angleStep * 3),
+        8,
+        center.z + radius * Math.sin(angleStep * 3),
+      ]}
+      ref={aboutRef}
+    >
+      <About />
+    </group>
+
+    <group
+      rotation={[0, angleStep * 4 + Math.PI/2, 0]}
+      position={[
+        center.x + radius * Math.cos(angleStep * 4),
+        8,
+        center.z + radius * Math.sin(angleStep * 4),
+      ]}
+      ref={page5Ref}
+    >
+      <Page5 />
+    </group>
         
         </Suspense>
 
