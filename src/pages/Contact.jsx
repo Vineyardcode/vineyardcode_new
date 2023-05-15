@@ -25,12 +25,12 @@ export default function Contact() {
     );
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
-      Math.sin(t / 4) / 20,
+      Math.sin(t / 4) / 100,
       0.1
     );
     group.current.rotation.z = THREE.MathUtils.lerp(
       group.current.rotation.z,
-      Math.sin(t / 8) / 20,
+      Math.sin(t / 8) / 100,
       0.1
     );
   });
@@ -58,10 +58,9 @@ export default function Contact() {
               <h3  className='flipLink'>Contact</h3>
             </div>
 
-         
           </Html>
       </mesh>
-    
+      <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
     </group>
   );
 }

@@ -24,12 +24,12 @@ export default function Projects() {
     );
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
-      Math.sin(t / 4) / 20,
+      Math.sin(t / 4) / 30,
       0.1
     );
     group.current.rotation.z = THREE.MathUtils.lerp(
       group.current.rotation.z,
-      Math.sin(t / 8) / 20,
+      Math.sin(t / 8) / 100,
       0.1
     );
   });
@@ -92,10 +92,9 @@ export default function Projects() {
             </div>   
 
           </Html>
-          <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
-
+          
       </mesh>
-    
+      <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
     </group>
   );
 }

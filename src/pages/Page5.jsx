@@ -27,12 +27,12 @@ export default function Page5() {
     );
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
-      Math.sin(t / 4) / 20,
+      Math.sin(t / 4) / 30,
       0.1
     );
     group.current.rotation.z = THREE.MathUtils.lerp(
       group.current.rotation.z,
-      Math.sin(t / 8) / 20,
+      Math.sin(t / 8) / 100,
       0.1
     );
   });
@@ -40,6 +40,8 @@ export default function Page5() {
 
 
   return (
+
+
     <group ref={group} dispose={null} >
 
       <mesh ref={mesh} >
@@ -54,21 +56,22 @@ export default function Page5() {
             position={[0,0.51,0]}
           >
 
-          <NavigationButtons />
+            <NavigationButtons />
 
-          <div className="page5">
-            <h3>Page 5</h3>
-            <h1>HELLO MOM ! ! !</h1>
+            <div className="page5">
+              <h3>Page 5</h3>
+              <h1>HELLO MOM ! ! !</h1>
 
-          </div>
+            </div>
 
 
          
           </Html>
-          <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
+          
 
       </mesh>
-    
+      <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
     </group>
+ 
   );
 }

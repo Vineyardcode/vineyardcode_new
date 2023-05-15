@@ -14,7 +14,6 @@ import { refs } from "./components/Refs";
 
 export default function App() {
 
-
   const projectsRef = useRef();
   const stackRef = useRef();
   const contactRef = useRef();
@@ -36,45 +35,56 @@ export default function App() {
     refs.orbitControlsRef = orbitControlsRef
   }, []);
 
-
-
-
-  
   return (
     <Canvas>
-
 
         <PerspectiveCamera position={[0,0,5]} ref={cameraRef} />
         
         <Suspense fallback={null}>
-
-        <group rotation={[Math.PI/2.7,0,0]} position={[20,1,-10]} ref={projectsRef} >
+        
+        <group rotation={[Math.PI/2.7,0,0]} position={[20,8,-10]} ref={projectsRef} >
           <Projects />
-
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[40,1,-20]} ref={stackRef}>
+        <group rotation={[Math.PI/1.5,0,Math.PI/1]} position={[40,8,-70]} ref={stackRef}>
           <Stack />
         </group>
           
-        <group rotation={[Math.PI/7.7,0,10]} position={[60,1,-30]} ref={contactRef}>
+        <group rotation={[Math.PI/2,Math.PI/0.6,Math.PI/2]} position={[0,20,-30]} ref={contactRef}>
           <Contact />
         </group>
 
-        <group rotation={[Math.PI,0,0]} position={[82,100,-42]} ref={aboutRef}>
+        <group rotation={[Math.PI/0.675,Math.PI/1.2,Math.PI/2]} position={[82,8,-42]} ref={aboutRef}>
           <About />
         </group>
 
-        <group rotation={[Math.PI/2.7,0,0]} position={[100,1,-50]} ref={page5Ref}>
+      
+        <group rotation={[Math.PI/2.7,0,0]} position={[-20,8,-10]} ref={page5Ref}>
           <Page5 />
         </group>
-
         
         </Suspense>
 
-      <Environment preset="city" background />
-      <CameraControls ref={cameraControlsRef} enablePan={true} enableZoom={true} maxAzimuthAngle={Infinity} maxPolarAngle={Infinity} />
-      <ContactShadows position={[0, -10, 0]} scale={30} blur={2} far={15} />
+      <Environment preset="city" />
+
+     
+
+      <CameraControls 
+        ref={cameraControlsRef}
+        enablePan={true}
+        enableZoom={true}
+        maxDistance={500}
+        maxAzimuthAngle={Infinity}
+        maxPolarAngle={Infinity}
+         // Math.PI / 1.7
+      />
+     
+     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
+          <planeGeometry args={[1000, 1000]} />
+          <meshStandardMaterial color="yellow" transparent opacity={0.5} roughness={0.4} metalness={0.6} envMapIntensity={0.6} />
+        </mesh>
+
+
     </Canvas>
   );
 
