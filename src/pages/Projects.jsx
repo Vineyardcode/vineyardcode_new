@@ -13,25 +13,27 @@ export default function Projects() {
   const group = useRef();
   const mesh = useRef();
 
+
   useFrame((state) => {
 
     const t = state.clock.getElapsedTime();
 
     group.current.rotation.x = THREE.MathUtils.lerp(
       group.current.rotation.x,
-      Math.cos(t / 2) / 20 + 0.25,
-      0.1
+      Math.cos(t / 2) / 1000 + 0.1,
+      0.01
     );
-    group.current.rotation.y = THREE.MathUtils.lerp(
-      group.current.rotation.y,
-      Math.sin(t / 4) / 30,
-      0.1
-    );
-    group.current.rotation.z = THREE.MathUtils.lerp(
-      group.current.rotation.z,
-      Math.sin(t / 8) / 100,
-      0.1
-    );
+    // group.current.rotation.y = THREE.MathUtils.lerp(
+    //   group.current.rotation.y,
+    //   Math.sin(t / 4) / 100,
+    //   0.1
+    // );
+    // group.current.rotation.z = THREE.MathUtils.lerp(
+    //   group.current.rotation.z,
+    //   Math.sin(t / 8) / 100,
+    //   0.1
+    // );
+    
   });
 
 
@@ -42,7 +44,7 @@ export default function Projects() {
 
 
       <mesh ref={mesh} >
-         <boxGeometry args={[15, 1, 17]} />
+         <boxGeometry args={[21, 1, 25.5]} />
           <meshStandardMaterial 
             color={0xffffff}
           />
@@ -51,6 +53,8 @@ export default function Projects() {
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.51,0]}
+            style={{ width: "847px", height: "1020px" }}
+
           >
             <div className='projects'>
 

@@ -45,7 +45,7 @@ export default function Page5() {
     <group ref={group} dispose={null} >
 
     <mesh ref={mesh} >
-  <boxGeometry args={[24.5, 1, 40]} />
+  <boxGeometry args={[25, 1, 40]} />
    <meshStandardMaterial 
      color={0xffffff}
    />
@@ -54,7 +54,7 @@ export default function Page5() {
      transform occlude="blending" 
      rotation={[-Math.PI/2,0,0]} 
      position={[0,0.52,0]}
-     style={{ width: "980px", height: "1599px" }}
+     style={{ width: "999px", height: "1599px" }}
    >
 
             <NavigationButtons />
