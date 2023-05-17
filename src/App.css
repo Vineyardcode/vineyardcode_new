@@ -34,10 +34,23 @@ h1 {
   height: 680px;
   background: white;
   border-radius: 3px;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding: 0;
   
 }
+
+.navButtons {
+
+}
+.contact  {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: url('public/img/Fredrik_I,_king_of_Sweden.jpg'); */
+}
+
+
 
 .projects {
   position: absolute;

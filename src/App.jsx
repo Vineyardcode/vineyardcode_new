@@ -63,7 +63,7 @@ export default function App() {
         <Suspense fallback={null}>
         
           <group
-            rotation={[0, Math.PI/2, 0]}
+            rotation={[1.555,-0.077,1.561]}
             position={[0,0,25]}
             ref={projectsRef}
           >
@@ -71,7 +71,7 @@ export default function App() {
           </group>
 
           <group
-            rotation={[1, Math.PI/2, 0]}
+            rotation={[1.555,-0.077,1.561]}
             position={[0,0,45]}
             ref={stackRef}
           >
@@ -111,7 +111,7 @@ export default function App() {
           <group
 
         rotation={[
-          1.555,-0.077,1.568
+          1.555,-0.077,1.561
       ]} 
         position={[
           81.8,
@@ -127,7 +127,7 @@ export default function App() {
 
 
           <group
-            rotation={[1.5,0.01,1.5]}
+            rotation={[1.555,-0.077,1.561]}
 
             ref={aboutRef}
           >
@@ -135,8 +135,8 @@ export default function App() {
           </group>
 
           <group
-            rotation={[4, Math.PI/2, 0]}
-            position={[0,0,85]}
+            rotation={[1.58,-0.077,1.53]}
+            position={[84.2,9,155]}
             ref={page5Ref}
           >
             <Page5 />

@@ -18,25 +18,25 @@ export default function Page5() {
 
   useFrame((state) => {
 
+    
     const t = state.clock.getElapsedTime();
 
     group.current.rotation.x = THREE.MathUtils.lerp(
       group.current.rotation.x,
-      Math.cos(t / 2) / 20 + 0.25,
-      0.1
+      Math.cos(t / 2) / 1000 + 0.1,
+      0.01
     );
-    group.current.rotation.y = THREE.MathUtils.lerp(
-      group.current.rotation.y,
-      Math.sin(t / 4) / 30,
-      0.1
-    );
-    group.current.rotation.z = THREE.MathUtils.lerp(
-      group.current.rotation.z,
-      Math.sin(t / 8) / 100,
-      0.1
-    );
+    // group.current.rotation.y = THREE.MathUtils.lerp(
+    //   group.current.rotation.y,
+    //   Math.sin(t / 4) / 100,
+    //   0.1
+    // );
+    // group.current.rotation.z = THREE.MathUtils.lerp(
+    //   group.current.rotation.z,
+    //   Math.sin(t / 8) / 100,
+    //   0.1
+    // );
   });
-
 
 
   return (
@@ -44,17 +44,18 @@ export default function Page5() {
 
     <group ref={group} dispose={null} >
 
-      <mesh ref={mesh} >
-         <boxGeometry args={[15, 1, 17]} />
-          <meshStandardMaterial 
-            color={0xffffff}
-          />
-          <Html 
-            className="content"  
-            transform occlude="blending" 
-            rotation={[-Math.PI/2,0,0]} 
-            position={[0,0.51,0]}
-          >
+    <mesh ref={mesh} >
+  <boxGeometry args={[24.5, 1, 40]} />
+   <meshStandardMaterial 
+     color={0xffffff}
+   />
+   <Html 
+     className="content"  
+     transform occlude="blending" 
+     rotation={[-Math.PI/2,0,0]} 
+     position={[0,0.52,0]}
+     style={{ width: "980px", height: "1599px" }}
+   >
 
             <NavigationButtons />
 
