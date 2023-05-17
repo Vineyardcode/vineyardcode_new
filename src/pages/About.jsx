@@ -46,19 +46,25 @@ export default function About() {
             color={0xffffff}
           />
           <Html 
-            className="content"  
+            
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.51,0]}
+            style={{ width: "600px", height: "680px" }}
+
           >
 
-          <NavigationButtons />
+          
 
           <div className="about">
             <h3>Hi, Its me !</h3>
+
+
+            <NavigationButtons />
           </div>
 
          
+
           </Html>
       </mesh>
       <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />

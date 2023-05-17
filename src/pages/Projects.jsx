@@ -49,22 +49,21 @@ export default function Projects() {
             color={0xffffff}
           />
           <Html 
-            className="content"  
+            className="projects"  
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.51,0]}
-            style={{ width: "847px", height: "1020px" }}
+            style={{ width: "840.5px", height: "1020.47px" }}
 
           >
-            <div className='projects'>
+            
+                <NavigationButtons />
 
-
-              <div className='mainPage'>
 
 
                 <div className="projects-main">
 
-                <NavigationButtons />
+                
                     
                   <div className="kanjiApp">
                     <h5>
@@ -92,8 +91,7 @@ export default function Projects() {
                 </div>
 
 
-              </div>  
-            </div>   
+ 
 
           </Html>
           

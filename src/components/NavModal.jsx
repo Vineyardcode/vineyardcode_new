@@ -86,7 +86,7 @@ const handleButtonClick = async (targetRef) => {
 const NavigationButtons = () => {
   return (
     <nav className='navButtons'>
-      <ul>
+      
         
           <button onClick={() => handleButtonClick(refs.projectsRef)}>Projects</button>
         
@@ -102,7 +102,7 @@ const NavigationButtons = () => {
         
           <button onClick={() => handleButtonClick(refs.page5Ref)}>Page5</button>
         
-      </ul>
+      
     </nav>
   );
 };

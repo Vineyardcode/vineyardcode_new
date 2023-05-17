@@ -11,11 +11,6 @@ import About from "./pages/About";
 import Page5 from "./pages/Page5";
 import { refs } from "./components/Refs";
 
-
-
-
-
-
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
 
@@ -25,7 +20,6 @@ const GLTFModel = () => {
 
   return <primitive object={scene} />;
 };
-
 
 
 export default function App() {
@@ -49,39 +43,10 @@ export default function App() {
     refs.cameraRef = cameraRef;
     refs.orbitControlsRef = orbitControlsRef
   }, []);
-// console.log(refs.contactRef.current.position);
+
+
   return (
     <Canvas>
-
-                {/* <PivotControls 
-        rotation={[
-0,0,0
-      ]} 
-        position={[
-0,0,0
-      ]}
-          anchor={[-0.52,0.9,-0.7]} 
-          scale={100} 
-          depthTest={true} 
-          fixed 
-          lineWidth={2}
-
-            onDrag={(l, dl, w, dw) => {
-              refs.cameraControlsRef.current.enabled = false;
-              const position = new THREE.Vector3();
-              const rotation = new THREE.Quaternion();
-              w.decompose(position, rotation, new THREE.Vector3());
-              setPosition(position);
-              setRotation(rotation);
-              console.log("rotat: ", [rotation.x, rotation.y, rotation.z]);
-              console.log("pos: ", [position.x, position.y, position.z]);
-              
-            }}
-            onDragEnd={() => {
-              refs.cameraControlsRef.current.enabled = true;
-            }}
-            ref={contactRef}
-          > */}
 
         <PerspectiveCamera 
           position={[0,0,50]} 
@@ -109,7 +74,6 @@ export default function App() {
           </group>
 
           <group
-
             rotation={[
               1.555,-0.077,1.561
           ]} 
@@ -122,9 +86,6 @@ export default function App() {
           >
             <Contact />
           </group>
-
-          {/* </PivotControls> */}
-
 
           <group
             rotation={[1.65,0.01,3.1]}
@@ -148,8 +109,6 @@ export default function App() {
 
       <Environment preset="city" />
 
-     
-
       <CameraControls 
         ref={cameraControlsRef}
         enablePan={false}
@@ -160,12 +119,6 @@ export default function App() {
         
       />
      
-        {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
-          <planeGeometry args={[1000, 1000]} />
-          <meshStandardMaterial color="yellow" transparent opacity={0.5} roughness={0.4} metalness={0.6} envMapIntensity={0.6} />
-        </mesh> */}
-
-
     </Canvas>
   );
 
