@@ -2,7 +2,7 @@ import * as THREE from "three";
 import React, { Suspense, useRef, useEffect, useState } from "react";
 import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls } from '@react-three/drei';
+import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls } from '@react-three/drei';
 import './App.css';
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
@@ -10,6 +10,22 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Page5 from "./pages/Page5";
 import { refs } from "./components/Refs";
+
+
+
+
+
+
+const GLTFModel = () => {
+  const { scene } = useGLTF('/scene.gltf');
+
+  scene.scale.set(20, 20, 20);
+  scene.position.set(0, 15, -100);
+
+
+  return <primitive object={scene} />;
+};
+
 
 
 export default function App() {
@@ -24,7 +40,6 @@ export default function App() {
   const orbitControlsRef = useRef()
 
   useEffect(() => {
-    // Update the refs object with the actual refs
     refs.projectsRef = projectsRef;
     refs.stackRef = stackRef;
     refs.contactRef = contactRef;
@@ -34,16 +49,12 @@ export default function App() {
     refs.cameraRef = cameraRef;
     refs.orbitControlsRef = orbitControlsRef
   }, []);
-
-  const radius = 50; // Radius of the circle
-  const center = new THREE.Vector3(0, 0, 0); // Center of the circle
-  const angleStep = (Math.PI * 2) / 5;
-
+// console.log(refs.contactRef.current.position);
   return (
     <Canvas>
 
         <PerspectiveCamera 
-          position={[0,50,0]} 
+          position={[0,0,50]} 
           ref={cameraRef}
           rotation={[Math.PI / 2.7, 0, 0]}
           makeDefault
@@ -51,66 +62,88 @@ export default function App() {
         
         <Suspense fallback={null}>
         
-    <group
-      rotation={[0, angleStep * 0 + Math.PI/2, 0]}
-      position={[
-        center.x + radius * Math.cos(angleStep * 0),
-        8,
-        center.z + radius * Math.sin(angleStep * 0),
-      ]}
-      ref={projectsRef}
-    >
-      <Projects />
-    </group>
+          <group
+            rotation={[0, Math.PI/2, 0]}
+            position={[0,0,25]}
+            ref={projectsRef}
+          >
+            <Projects />
+          </group>
 
-    <group
-      rotation={[0, angleStep * 1 + Math.PI/2, 0]}
-      position={[
-        center.x + radius * Math.cos(angleStep * 1),
-        8,
-        center.z + radius * Math.sin(angleStep * 1),
-      ]}
-      ref={stackRef}
-    >
-      <Stack />
-    </group>
+          <group
+            rotation={[1, Math.PI/2, 0]}
+            position={[0,0,45]}
+            ref={stackRef}
+          >
+            <Stack />
+          </group>
 
-    <group
-      rotation={[Math.PI/1, angleStep * 2 + Math.PI/2, Math.PI/2]}
-      position={[
-        center.x + radius * Math.cos(angleStep * 2),
-        20,
-        center.z + radius * Math.sin(angleStep * 2),
+          {/* <PivotControls 
+        rotation={[
+0,0,0
+      ]} 
+        position={[
+0,0,0
       ]}
-      ref={contactRef}
-    >
-      <Contact />
-    </group>
+          anchor={[-0.52,0.9,-0.7]} 
+          scale={100} 
+          depthTest={true} 
+          fixed 
+          lineWidth={2}
 
-    <group
-      rotation={[0, angleStep * 3 + Math.PI/2, 0]}
-      position={[
-        center.x + radius * Math.cos(angleStep * 3),
-        8,
-        center.z + radius * Math.sin(angleStep * 3),
-      ]}
-      ref={aboutRef}
-    >
-      <About />
-    </group>
+            onDrag={(l, dl, w, dw) => {
+              refs.cameraControlsRef.current.enabled = false;
+              const position = new THREE.Vector3();
+              const rotation = new THREE.Quaternion();
+              w.decompose(position, rotation, new THREE.Vector3());
+              setPosition(position);
+              setRotation(rotation);
+              console.log("rotat: ", [rotation.x, rotation.y, rotation.z]);
+              console.log("pos: ", [position.x, position.y, position.z]);
+              
+            }}
+            onDragEnd={() => {
+              refs.cameraControlsRef.current.enabled = true;
+            }}
+            ref={contactRef}
+          > */}
 
-    <group
-      rotation={[0, angleStep * 4 + Math.PI/2, 0]}
-      position={[
-        center.x + radius * Math.cos(angleStep * 4),
-        8,
-        center.z + radius * Math.sin(angleStep * 4),
+          <group
+
+        rotation={[
+          1.555,-0.077,1.568
+      ]} 
+        position={[
+          81.8,
+          36.8,
+          39.5
       ]}
-      ref={page5Ref}
-    >
-      <Page5 />
-    </group>
+            ref={contactRef}
+          >
+            <Contact />
+          </group>
+
+          {/* </PivotControls> */}
+
+
+          <group
+            rotation={[1.5,0.01,1.5]}
+
+            ref={aboutRef}
+          >
+            <About />
+          </group>
+
+          <group
+            rotation={[4, Math.PI/2, 0]}
+            position={[0,0,85]}
+            ref={page5Ref}
+          >
+            <Page5 />
+          </group>
         
+
+        <GLTFModel/>
         </Suspense>
 
       <Environment preset="city" />
@@ -119,22 +152,23 @@ export default function App() {
 
       <CameraControls 
         ref={cameraControlsRef}
-        enablePan={true}
+        enablePan={false}
         enableZoom={true}
         maxDistance={500}
         maxAzimuthAngle={Infinity}
         maxPolarAngle={Infinity}
-         // Math.PI / 1.7
+        
       />
      
-     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
+        {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
           <planeGeometry args={[1000, 1000]} />
           <meshStandardMaterial color="yellow" transparent opacity={0.5} roughness={0.4} metalness={0.6} envMapIntensity={0.6} />
-        </mesh>
+        </mesh> */}
 
 
     </Canvas>
   );
 
-  
+
+
 }

@@ -52,7 +52,7 @@ const handleButtonClick = async (targetRef) => {
   normal.applyMatrix4(targetRef.current.children[0].children[0].matrixWorld);
   // normal.negate();
 
-  const distance = 20;
+  const distance = 42;
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
   gsap.to(currentPos, {
