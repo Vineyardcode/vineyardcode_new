@@ -51,28 +51,29 @@ export default function Contact() {
   return (
     <group ref={group} dispose={null} >
 
-    <mesh ref={mesh} >
-  <boxGeometry args={[24.5, 1, 33.3]} />
-   <meshStandardMaterial 
-     color={0xffffff}
-   />
-   <Html 
-     className="content"  
-     transform occlude="blending" 
-     rotation={[-Math.PI/2,0,0]} 
-     position={[0,0.52,0]}
-     style={{ width: "980px", height: "1350px" }}
-   >
+      <mesh ref={mesh} >
+        <boxGeometry args={[24.5, 1, 33.3]} />
+        <meshStandardMaterial 
+          color={0xffffff}
+        />
+        <Html 
+          className="contact"  
+          transform occlude="blending" 
+          rotation={[-Math.PI/2,0,0]} 
+          position={[0,0.52,0]}
+          style={{ width: "980px", height: "1350px" }}
+        >
+      
+          <div className="contact-nav">
+            <NavigationButtons />
+          </div>
 
-          <NavigationButtons />
+          <h3  className='flipLink'>Contact</h3>
+          
 
-            <div className="contact">
-              <h3  className='flipLink'>Contact</h3>
-            </div>
-
-          </Html>
+        </Html>
       </mesh>
-      <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
+        <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
     </group>
   );
 }

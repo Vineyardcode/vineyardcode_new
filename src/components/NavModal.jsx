@@ -85,7 +85,7 @@ const handleButtonClick = async (targetRef) => {
 
 const NavigationButtons = () => {
   return (
-    <nav className='navButtons'>
+    <nav className="navButtons">
       
         
           <button onClick={() => handleButtonClick(refs.projectsRef)}>Projects</button>

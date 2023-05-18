@@ -46,7 +46,7 @@ export default function About() {
             color={0xffffff}
           />
           <Html 
-            
+            className="about"
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.51,0]}
@@ -54,17 +54,18 @@ export default function About() {
 
           >
 
-          
+            <div className="about-main">
 
-          <div className="about">
-            <h3>Hi, Its me !</h3>
+              <div className="about-nav">
+                <NavigationButtons id={"about-nav"} />
+              </div>
 
+              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac ante vel purus dictum lacinia. Maecenas ut massa nec enim imperdiet rhoncus. Cras finibus ac enim non pulvinar. Vestibulum rutrum ex sit amet nibh malesuada, sit amet elementum quam mollis. Aenean eu magna lectus. Suspendisse ornare velit risus. Curabitur sem diam, sodales sed mauris in, imperdiet lobortis velit. Vestibulum euismod diam nec felis consequat consectetur. Nulla facilisi. Etiam lectus elit, ultrices a congue et, vehicula in magna. Proin nec sollicitudin purus, quis cursus ex. Fusce nisl metus, placerat in justo dapibus, egestas pharetra augue. Nunc ornare sapien at velit tempus sagittis.</h3>
 
-            <NavigationButtons />
-          </div>
+              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac ante vel purus dictum lacinia. Maecenas ut massa nec enim imperdiet rhoncus. Cras finibus ac enim non pulvinar. Vestibulum rutrum ex sit amet nibh malesuada, sit amet elementum quam mollis.</h3>
 
-         
-
+            </div>
+            
           </Html>
       </mesh>
       <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />

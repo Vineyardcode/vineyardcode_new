@@ -14,7 +14,7 @@ main,
   margin: 0;
   padding: 0;
   
-  color: rgb(79, 32, 171);
+  color: rgb(0, 0, 0);
 
   overflow: hidden;
 }
@@ -24,22 +24,67 @@ h1 {
 }
 
 @keyframes flash {
-  0% { color: red; }
-  50% { color: blue; }
+  0% { color: burlywood; }
+  50% { color: goldenrod; }
 }
+
+.about {
+  padding: 5px;
+  display: flex;
+  background-color: black;
+  color: rgb(0, 0, 0);
+  text-shadow: 0.7px 0.1px 0.1px white;
+  background-image: url('/img/Leonardo_Diffusion_baroque_pattern_website_background_gold_on_0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  .about h3 {
+    backdrop-filter: blur(5px);
+  }
+
+  .about-nav {
+  display: flex;
+  backdrop-filter: blur(5px);
+
+
+  width: 100%;
+  height: 7rem;
+  }
+
+  .about-main {
+    padding: 20px;
+
+    /* border: 2px solid black; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+  }
+
+    .about-main h3 {
+      text-align:justify;
+
+    }
 
 
 
 .navButtons {
-  padding: 25px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
+  backdrop-filter: blur(5px);
 
 } 
 
   .navButtons button {
+    background-color: transparent;
 
     border-radius: 8px;
     border: 1px solid black;
@@ -53,7 +98,8 @@ h1 {
   }
 
   .navButtons button:hover {
-    border-color: #646cff;
+    border-color: white;
+    color: white;
   }
   .navButtons button:focus,
   .navButtons button:focus-visible {
@@ -65,13 +111,19 @@ h1 {
 
 
 .contact  {
+  padding: 30px;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-image: url('public/img/Fredrik_I,_king_of_Sweden.jpg'); */
+  background-image: url('/img/Leonardo_Diffusion_close_to_the_edge_frame_baroque_pattern_gol_0.jpg');
 }
+  .contact-nav {
+    display: flex;
+    height: 7rem;
+    backdrop-filter: blur(5px);
 
+  }
 
 
 .projects {

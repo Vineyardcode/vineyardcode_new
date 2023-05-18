@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Page5 from "./pages/Page5";
 import { refs } from "./components/Refs";
+import NavigationButtons from "./components/NavModal";
 
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
@@ -20,6 +21,7 @@ const GLTFModel = () => {
 
   return <primitive object={scene} />;
 };
+
 
 
 export default function App() {
@@ -42,6 +44,9 @@ export default function App() {
     refs.cameraControlsRef = cameraControlsRef;
     refs.cameraRef = cameraRef;
     refs.orbitControlsRef = orbitControlsRef
+
+
+
   }, []);
 
 
@@ -102,6 +107,8 @@ export default function App() {
           >
             <Page5 />
           </group>
+
+
         
 
         <GLTFModel/>
