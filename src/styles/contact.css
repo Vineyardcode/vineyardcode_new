@@ -1,17 +1,19 @@
-.page5 {
-  padding: 1rem;
+.contact  {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  text-align: center;
+  flex-direction: column;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('/img/pic9.jpg');
-  font-size: 17px;
+  background-image: url('/img/pic8.jpg');
+  font-size: 23px;
+
 }
 
-  .page5-main {
+  .contact-main {
     padding: 1rem;
     backdrop-filter: blur(5px);
     display: flex;
@@ -20,18 +22,18 @@
     align-items: center;
     width: 100%;
     height: 100%;
-
   }
 
-  .page5-nav {
+  .contact-nav {
     display: flex;
+    height: 7rem;
     backdrop-filter: blur(5px);
     width: 100%;
-    height: 7rem;
+
   }
 
-  /* .website-frame {
-    width: 100%;
-    height: 100%;
-    border: none; 
-  } */
+  a {
+    color: rgb(79, 32, 171);
+    cursor: pointer;
+    
+  }

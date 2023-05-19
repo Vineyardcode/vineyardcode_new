@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import React, { Suspense, useRef, useEffect, useState } from "react";
-import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls } from '@react-three/drei';
 import './App.css';
@@ -44,11 +43,7 @@ export default function App() {
     refs.cameraControlsRef = cameraControlsRef;
     refs.cameraRef = cameraRef;
     refs.orbitControlsRef = orbitControlsRef
-
-
-
   }, []);
-
 
   return (
     <Canvas>
@@ -57,36 +52,34 @@ export default function App() {
           position={[0,0,50]} 
           ref={cameraRef}
           rotation={[Math.PI / 2.7, 0, 0]}
+          near={1}
+          far={300}
           makeDefault
           />
         
         <Suspense fallback={null}>
         
           <group
-            rotation={[1.58,0.087,-1.6]}
-            position={[-97.9,47.4,13.2]}
+            rotation={[1.571,-0.077,1.561]} 
+            position={[81.8,36.8,39.5 ]}
             ref={projectsRef}
           >
             <Projects />
           </group>
 
           <group
-            rotation={[1.58,0.121,-1.61]}
-            position={[-99.9,46.8,-18.55]}
+            rotation={[1.57,-0.095,1.548]} 
+            position={[80.37,48.1,6.3 ]}
             ref={stackRef}
           >
             <Stack />
           </group>
 
           <group
-            rotation={[
-              1.555,-0.077,1.561
-          ]} 
-            position={[
-              81.8,
-              36.8,
-              39.5
-          ]}
+
+
+          rotation={[1.58,0.087,-1.6]}
+          position={[-97.9,47.4,13.2]}
             ref={contactRef}
           >
             <Contact />

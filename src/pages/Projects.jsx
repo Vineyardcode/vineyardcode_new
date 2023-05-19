@@ -14,7 +14,6 @@ export default function Projects() {
   const group = useRef();
   const mesh = useRef();
 
-
   useFrame((state) => {
 
     const t = state.clock.getElapsedTime();
@@ -37,15 +36,12 @@ export default function Projects() {
     
   });
 
-
-
-
   return (
     <group ref={group} dispose={null} >
 
 
       <mesh ref={mesh} >
-         <boxGeometry args={[21, 1, 25.5]} />
+         <boxGeometry args={[24.5, 1, 33.3]}/>
           <meshStandardMaterial 
             color={0xffffff}
           />
@@ -53,27 +49,25 @@ export default function Projects() {
             className="projects"  
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
-            position={[0,0.51,0]}
-            style={{ width: "840.5px", height: "1020.47px" }}
-
+            position={[0,0.52,0]}
+            style={{ width: "983px", height: "1350px" }}
           >
-            
+
             <div className="projects-main">
 
               <div className="stack-nav">
                 <NavigationButtons />
               </div>    
 
-                  <div className="kanjiApp">
-                    <h5>
-                      <a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a>
-                    </h5>
-                      <p><b>Reviews kanji</b></p>
-                      <p><b>Creates anki decks <br/> with animated <br/> stroke orders</b></p>
-                      <p><b>and more...</b></p>
-                  </div>  
+                <div className="kanjiApp">
+                  <h5>
+                    <a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a>
+                  </h5>
+                    <p><b>Reviews kanji</b></p>
+                    <p><b>Creates anki decks <br/> with animated <br/> stroke orders</b></p>
+                    <p><b>and more...</b></p>
+                </div>  
                 
-
                 <div className="codeExamples">
                   <h3>Code Examples</h3>
                   <div className="codeExamples-icons">
@@ -89,9 +83,6 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-
- 
-
           </Html>
           
       </mesh>

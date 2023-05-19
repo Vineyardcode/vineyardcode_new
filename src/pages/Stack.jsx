@@ -44,7 +44,7 @@ export default function Stack() {
     <group ref={group} dispose={null} >
 
       <mesh ref={mesh} >
-         <boxGeometry args={[15.3, 1, 19.3]} />
+         <boxGeometry args={[20.9, 1, 25.5]} />
           <meshStandardMaterial 
             color={0xffffff}
           />
@@ -53,7 +53,7 @@ export default function Stack() {
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.51,0]}
-            style={{ width: "616px", height: "775px" }}
+            style={{ width: "839px", height: "1025px" }}
 
           >
             <div className="stack-main">

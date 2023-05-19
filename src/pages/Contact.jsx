@@ -6,6 +6,9 @@ import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, Si
 import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
+import '../styles/contact.css'
+
+
 
 export default function Contact() {
 
@@ -35,42 +38,32 @@ export default function Contact() {
     // );
   });
 
-  // <mesh ref={mesh} >
-  // <boxGeometry args={[24.5, 1, 33.3]} />
-  //  <meshStandardMaterial 
-  //    color={0xffffff}
-  //  />
-  //  <Html 
-  //    className="content"  
-  //    transform occlude="blending" 
-  //    rotation={[-Math.PI/2,0,0]} 
-  //    position={[0,0.52,0]}
-  //    style={{ width: "980px", height: "1350px" }}
-  //  >
-
   return (
     <group ref={group} dispose={null} >
 
       <mesh ref={mesh} >
-        <boxGeometry args={[24.5, 1, 33.3]} />
+        <boxGeometry args={[21, 1, 25.5]}/>
         <meshStandardMaterial 
           color={0xffffff}
         />
         <Html 
-          className="contact"  
-          transform occlude="blending" 
-          rotation={[-Math.PI/2,0,0]} 
-          position={[0,0.52,0]}
-          style={{ width: "983px", height: "1350px" }}
-        >
-      
+            className="contact"  
+            transform occlude="blending" 
+            rotation={[-Math.PI/2,0,0]} 
+            position={[0,0.51,0]}
+            style={{ width: "840.5px", height: "1020.47px" }}
+          >
 
-          <div className="contact-nav">
-            <NavigationButtons />
-          </div>
-          
-          <div className="contact-main">
-            <h3  className='flipLink'>Contact</h3>
+          <div className="contact-main"> 
+      
+            <div className="contact-nav">
+              <NavigationButtons />
+            </div>
+            
+            <div className="contact-main">
+              <h3  className='flipLink'>Contact</h3>
+            </div>
+
           </div>
 
         </Html>

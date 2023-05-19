@@ -6,6 +6,8 @@ import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, Si
 import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
+import '../styles/about.css'
+
 
 export default function About() {
 

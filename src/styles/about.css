@@ -1,0 +1,38 @@
+.about {
+  padding: 1rem;
+  display: flex;
+  background-color: black;
+  color: rgb(0, 0, 0);
+  text-shadow: 0.7px 0.1px 0.1px white;
+  background-image: url('/img/Leonardo_Diffusion_website_background_frame_baroque_pattern_go_0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+  .about-main {
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+  }
+
+  .about h3 {
+    backdrop-filter: blur(5px);
+  }
+
+  .about-nav {
+    display: flex;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 7rem;
+  }
+
+    .about-main h3 {
+      text-align:justify;
+
+    }

@@ -38,9 +38,7 @@ export default function Page5() {
     // );
   });
 
-
   return (
-
 
     <group ref={group} dispose={null} >
 
@@ -56,14 +54,22 @@ export default function Page5() {
             position={[0,0.52,0]}
             style={{ width: "592px", height: "727px" }}
           >
+            {/* <iframe src="https://tunnelvision.vercel.app/" class="website-frame"></iframe> */}
+
+
+            <div className="page5-main">
 
             <div className="page5-nav">
               <NavigationButtons />
             </div>
 
+
+
             <div className="page5-main">
               <h3>Page 5</h3>
               <h1>HELLO MOM ! ! !</h1>
+            </div>
+
             </div>
 
           </Html>
