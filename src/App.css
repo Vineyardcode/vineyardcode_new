@@ -1,6 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
-
 * {
   box-sizing: border-box;
 }
@@ -13,30 +10,20 @@ main,
   height: 100%;
   margin: 0;
   padding: 0;
-  
   color: rgb(0, 0, 0);
-
   overflow: hidden;
-}
 
-h1 {
-  animation: flash 0.2s infinite;
-}
-
-@keyframes flash {
-  0% { color: burlywood; }
-  50% { color: goldenrod; }
 }
 
 .about {
-  padding: 5px;
   display: flex;
   background-color: black;
   color: rgb(0, 0, 0);
   text-shadow: 0.7px 0.1px 0.1px white;
-  background-image: url('/img/Leonardo_Diffusion_baroque_pattern_website_background_gold_on_0.jpg');
+  background-image: url('/img/Leonardo_Diffusion_website_background_frame_baroque_pattern_go_0.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
   .about h3 {
@@ -44,25 +31,20 @@ h1 {
   }
 
   .about-nav {
-  display: flex;
-  backdrop-filter: blur(5px);
-
-
-  width: 100%;
-  height: 7rem;
+    display: flex;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 7rem;
   }
 
   .about-main {
-    padding: 20px;
-
-    /* border: 2px solid black; */
+    padding: 1rem;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
   }
 
     .about-main h3 {
@@ -70,10 +52,64 @@ h1 {
 
     }
 
+.contact  {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/img/Leonardo_Diffusion_close_to_the_edge_frame_baroque_pattern_gol_0.jpg');
 
+}
+
+  .contact-nav {
+    display: flex;
+    height: 7rem;
+    backdrop-filter: blur(5px);
+    width: 100%;
+
+  }
+
+  .contact-main {
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 20rem;
+    text-align: center;
+
+  }
+
+  a {
+    color: rgb(79, 32, 171);
+    cursor: pointer;
+    
+  }
+
+  .projects h3 {
+    text-decoration: underline;
+    line-height: 30px;
+    font-size: 17px;
+    font-family: 'Orbitron', sans-serif;
+
+  }
+
+  .codeExamples {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+    .codeExamples-icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding-top: 5%;
+    }
 
 .navButtons {
-
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -82,10 +118,9 @@ h1 {
   backdrop-filter: blur(5px);
 
 } 
-
+    
   .navButtons button {
     background-color: transparent;
-
     border-radius: 8px;
     border: 1px solid black;
     padding: 0.6em 1.2em;
@@ -101,140 +136,36 @@ h1 {
     border-color: white;
     color: white;
   }
+
   .navButtons button:focus,
   .navButtons button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
 
-
-
-
-
-.contact  {
-  padding: 30px;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('/img/Leonardo_Diffusion_close_to_the_edge_frame_baroque_pattern_gol_0.jpg');
-}
-  .contact-nav {
-    display: flex;
-    height: 7rem;
-    backdrop-filter: blur(5px);
-
+/* @media only screen and (max-width: 768px) {
+  .projects {
+    width: 77%;
+    height: 95%;
   }
 
+    .projects h3 {
+      font-size: 15px;
 
-.projects {
-  
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-
-} 
-
-
-
-
-
-
-.flipLink:hover {
-  color: rgb(79, 32, 171);
-  cursor: pointer;
-}
-
-  .projects-main {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .projects p, a {
-    font-size: 15px;
-    line-height: 20px;
-    word-wrap: normal;
-  }
-
-  a {
-    color: rgb(79, 32, 171);
-    cursor: pointer;
-  }
-
-  .projects h3 {
-    text-decoration: underline;
-    line-height: 30px;
-    font-size: 17px;
-    font-family: 'Orbitron', sans-serif;
-
-  }
-
-  .codeExamples {
-    display: flex;
-    flex-direction: column;
-    
-    justify-content: center;
-
-
-  }
-
-    .codeExamples-icons {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      padding-top: 5%;
     }
 
-  .stack {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-
-  }
-
-    .icons {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(5, 1fr);
-      grid-column-gap: 1%;
-      grid-row-gap: 1%;
-      justify-content: center;
-      align-items: center;
+    .projects p, a {
+      font-size: 12px;
+      line-height: 15px;
     }
+
+  .icons {
+    grid-row-gap: 5%;
+  }
 
     .icons p {
-      font-size: 13px;
-      justify-content: center;
-      align-items: center;
-      margin: 5px 0 0 0;
+      font-size: 10px;
+
     }
-
-    /* @media only screen and (max-width: 768px) {
-      .projects {
-        width: 77%;
-        height: 95%;
-      }
-
-        .projects h3 {
-          font-size: 15px;
-
-        }
-
-        .projects p, a {
-          font-size: 12px;
-          line-height: 15px;
-        }
-
-      .icons {
-        grid-row-gap: 5%;
-      }
-
-        .icons p {
-          font-size: 10px;
-
-        }
-    } */
+} */
 
 

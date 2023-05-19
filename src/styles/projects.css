@@ -1,0 +1,25 @@
+.projects {
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-image: url('/public/img/pic2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 25px;
+} 
+
+  .projects-main {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+  }
+
+  .projects p, a {
+    font-size: 15px;
+    line-height: 20px;
+    word-wrap: normal;
+  }

@@ -6,6 +6,7 @@ import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, Si
 import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
+import '../styles/projects.css'
 
 
 export default function Projects() {
@@ -57,14 +58,12 @@ export default function Projects() {
 
           >
             
+            <div className="projects-main">
+
+              <div className="stack-nav">
                 <NavigationButtons />
+              </div>    
 
-
-
-                <div className="projects-main">
-
-                
-                    
                   <div className="kanjiApp">
                     <h5>
                       <a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a>
@@ -73,7 +72,7 @@ export default function Projects() {
                       <p><b>Creates anki decks <br/> with animated <br/> stroke orders</b></p>
                       <p><b>and more...</b></p>
                   </div>  
-                </div>
+                
 
                 <div className="codeExamples">
                   <h3>Code Examples</h3>
@@ -89,7 +88,7 @@ export default function Projects() {
                     </div>
                   </div>
                 </div>
-
+              </div>
 
  
 

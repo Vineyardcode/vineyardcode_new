@@ -6,6 +6,8 @@ import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, Si
 import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
+import '../styles/stack.css'
+
 
 export default function Stack() {
 
@@ -47,78 +49,78 @@ export default function Stack() {
             color={0xffffff}
           />
           <Html 
-            className="content"  
+            className="stack"  
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.51,0]}
-            style={{ width: "610px", height: "770px" }}
+            style={{ width: "616px", height: "775px" }}
 
           >
+            <div className="stack-main">
             
-          <NavigationButtons />
+              <NavigationButtons />
 
-          <div className="stack">
-            <h3>What I like <br/> to work with</h3>
-            <div className="icons">
+              <h3>What I like <br/> to work with</h3>
+              <div className="icons">
 
-              <div>
-                <SiTypescript size={20} color='rgb(79, 32, 171)' title='TypeScript'/>
-                <p>TS</p>
-              </div>
+                <div>
+                  <SiTypescript size={20} color='rgb(79, 32, 171)' title='TypeScript'/>
+                  <p>TS</p>
+                </div>
 
-              <div>                 
-                <FaJs size={20} color='rgb(79, 32, 171)' title='JavaScript'/>
-                <p>JS</p>
-              </div>
+                <div>                 
+                  <FaJs size={20} color='rgb(79, 32, 171)' title='JavaScript'/>
+                  <p>JS</p>
+                </div>
 
-              <div>              
-                <FaReact size={20} color='rgb(79, 32, 171)' title='React'/>
-                <p>React</p>
-              </div>
+                <div>              
+                  <FaReact size={20} color='rgb(79, 32, 171)' title='React'/>
+                  <p>React</p>
+                </div>
 
-              <div>            
-                <FaPython size={20} color='rgb(79, 32, 171)' title='Python'/>
-                <p>Python</p>
-              </div> 
+                <div>            
+                  <FaPython size={20} color='rgb(79, 32, 171)' title='Python'/>
+                  <p>Python</p>
+                </div> 
 
-              <div>   
-                <SiVisualstudiocode size={20} color='rgb(79, 32, 171)' title='VS Code'/>
-                <p>VSCode</p>
-              </div>
+                <div>   
+                  <SiVisualstudiocode size={20} color='rgb(79, 32, 171)' title='VS Code'/>
+                  <p>VSCode</p>
+                </div>
 
-              <div>                
-                <DiGit size={20} color='rgb(79, 32, 171)' title='Git'/>
-                <p>Git</p>
-              </div>
+                <div>                
+                  <DiGit size={20} color='rgb(79, 32, 171)' title='Git'/>
+                  <p>Git</p>
+                </div>
 
-              <div>              
-                <SiRedux size={20} color='rgb(79, 32, 171)' title='Redux'/>
-                <p>Redux</p>
-              </div>
+                <div>              
+                  <SiRedux size={20} color='rgb(79, 32, 171)' title='Redux'/>
+                  <p>Redux</p>
+                </div>
 
-              <div>              
-                <DiHtml5 size={20} color='rgb(79, 32, 171)' title='HTML5'/>
-                <p>HTML5</p>
-              </div>
+                <div>              
+                  <DiHtml5 size={20} color='rgb(79, 32, 171)' title='HTML5'/>
+                  <p>HTML5</p>
+                </div>
 
-              <div>               
-                <DiCss3 size={20} color='rgb(79, 32, 171)' title='CSS'/>
-                <p>CSS</p>
-              </div>
+                <div>               
+                  <DiCss3 size={20} color='rgb(79, 32, 171)' title='CSS'/>
+                  <p>CSS</p>
+                </div>
 
-              <div>           
-                <DiFirebase size={20} color='rgb(79, 32, 171)' title='Firebase'/>
-                <p>Firebase</p>
-              </div>
+                <div>           
+                  <DiFirebase size={20} color='rgb(79, 32, 171)' title='Firebase'/>
+                  <p>Firebase</p>
+                </div>
 
-              <div>           
-                <SiThreedotjs size={20} color='rgb(79, 32, 171)' title='Three.js'/>
-                <p>Three.js</p>
+                <div>           
+                  <SiThreedotjs size={20} color='rgb(79, 32, 171)' title='Three.js'/>
+                  <p>Three.js</p>
+                </div>
+
               </div>
 
             </div>
-          </div>
-         
           </Html>
       </mesh>
         <ContactShadows position={[0, -9, 0]} scale={30} blur={2} far={15} />

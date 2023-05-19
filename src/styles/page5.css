@@ -1,0 +1,19 @@
+
+
+.page5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/img/Leonardo_Diffusion_close_to_the_edge_frame_baroque_pattern_gol_0.jpg');
+}
+
+  .page5-nav {
+    display: flex;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 7rem;
+  }

@@ -61,15 +61,17 @@ export default function Contact() {
           transform occlude="blending" 
           rotation={[-Math.PI/2,0,0]} 
           position={[0,0.52,0]}
-          style={{ width: "980px", height: "1350px" }}
+          style={{ width: "983px", height: "1350px" }}
         >
       
+
           <div className="contact-nav">
             <NavigationButtons />
           </div>
-
-          <h3  className='flipLink'>Contact</h3>
           
+          <div className="contact-main">
+            <h3  className='flipLink'>Contact</h3>
+          </div>
 
         </Html>
       </mesh>

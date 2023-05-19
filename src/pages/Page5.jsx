@@ -6,7 +6,7 @@ import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, Si
 import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
-
+import '../styles/page5.css'
 
 
 export default function Page5() {
@@ -44,32 +44,30 @@ export default function Page5() {
 
     <group ref={group} dispose={null} >
 
-    <mesh ref={mesh} >
-  <boxGeometry args={[25, 1, 40]} />
-   <meshStandardMaterial 
-     color={0xffffff}
-   />
-   <Html 
-     className="content"  
-     transform occlude="blending" 
-     rotation={[-Math.PI/2,0,0]} 
-     position={[0,0.52,0]}
-     style={{ width: "999px", height: "1599px" }}
-   >
+      <mesh ref={mesh} >
+      <boxGeometry args={[14.8, 1, 18.2]} />
+      <meshStandardMaterial 
+        color={0xffffff}
+      />
+          <Html 
+            className="page5"  
+            transform occlude="blending" 
+            rotation={[-Math.PI/2,0,0]} 
+            position={[0,0.52,0]}
+            style={{ width: "592px", height: "727px" }}
+          >
 
-            <NavigationButtons />
-
-            <div className="page5">
-              <h3>Page 5</h3>
-              <h1>HELLO MOM ! ! !</h1>
-
+            <div className="page5-nav">
+              <NavigationButtons />
             </div>
 
+            <div className="page5-main">
+              <h3>Page 5</h3>
+              <h1>HELLO MOM ! ! !</h1>
+            </div>
 
-         
           </Html>
           
-
       </mesh>
       <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
     </group>

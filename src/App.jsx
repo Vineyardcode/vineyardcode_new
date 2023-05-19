@@ -101,8 +101,8 @@ export default function App() {
           </group>
 
           <group
-            rotation={[1.57,-0.1,1.542]}
-            position={[85,9.9,155.5]}
+            rotation={[1.49,0.01,-0.035]}
+            position={[20.7,46.8,-42.6]}
             ref={page5Ref}
           >
             <Page5 />
