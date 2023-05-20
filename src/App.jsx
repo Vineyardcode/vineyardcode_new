@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import React, { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls } from '@react-three/drei';
+import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls, Box } from '@react-three/drei';
 import './App.css';
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
@@ -43,27 +43,44 @@ export default function App() {
     refs.cameraControlsRef = cameraControlsRef;
     refs.cameraRef = cameraRef;
     refs.orbitControlsRef = orbitControlsRef
+
+
   }, []);
+
+
+  const setBoundary = (box3) => {
+    // Set the boundary box for the camera controls
+    cameraControlsRef.current.setBoundary(box3);
+  };
+  console.log("log");
+  const box3 = new THREE.Box3(
+    new THREE.Vector3(-100, -100, -100), // Minimum point of the boundary box
+    new THREE.Vector3(100, 100, 100) // Maximum point of the boundary box
+  );
+
+
+  // setBoundary={[225, 90, 290]}
 
   return (
     <Canvas>
 
         <PerspectiveCamera 
-          position={[0,0,50]} 
+          
+
           ref={cameraRef}
-          rotation={[Math.PI / 2.7, 0, 0]}
           near={1}
           far={300}
-          makeDefault
+
           />
         
         <Suspense fallback={null}>
-        
+
           <group
             rotation={[1.571,-0.077,1.561]} 
             position={[81.8,36.8,39.5 ]}
             ref={projectsRef}
           >
+
             <Projects />
           </group>
 
@@ -76,8 +93,6 @@ export default function App() {
           </group>
 
           <group
-
-
           rotation={[1.58,0.087,-1.6]}
           position={[-97.9,47.4,13.2]}
             ref={contactRef}
@@ -102,7 +117,7 @@ export default function App() {
           </group>
 
 
-        
+
 
         <GLTFModel/>
         </Suspense>
@@ -116,9 +131,10 @@ export default function App() {
         maxDistance={500}
         maxAzimuthAngle={Infinity}
         maxPolarAngle={Infinity}
-        
+
+    
       />
-     
+
     </Canvas>
   );
 
