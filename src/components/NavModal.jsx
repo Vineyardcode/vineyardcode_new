@@ -93,7 +93,11 @@ const NavigationButtons = () => {
       new THREE.Vector3(60, 55, 190) 
     );
     refs.cameraControlsRef.current.setBoundary(box3);
-    console.log(refs.cameraControlsRef.current.camera.near)
+    
+    
+    refs.cameraControlsRef.current.setPosition(26, 50, 176);
+    refs.cameraControlsRef.current.setLookAt(26, 50, 176,26,45,196);
+    console.log(refs.cameraControlsRef.current.camera.position)
   }, [])
  
   const KEYCODE = {
@@ -101,40 +105,56 @@ const NavigationButtons = () => {
     A: 65,
     S: 83,
     D: 68,
+    ALT: 18,
+    SPACE: 32
   };
   
   useEffect(() => {
     const handleAKeyHold = (event) => {
-      refs.cameraControlsRef.current.truck(-0.03 * event.deltaTime, 0, false);
+      refs.cameraControlsRef.current.truck(-0.015 * event.deltaTime, 0, false);
     };
 
     const handleDKeyHold = (event) => {
-      refs.cameraControlsRef.current.truck(0.03 * event.deltaTime, 0, false);
+      refs.cameraControlsRef.current.truck(0.015 * event.deltaTime, 0, false);
     };
 
     const handleWKeyHold = (event) => {
-      refs.cameraControlsRef.current.forward(0.03 * event.deltaTime, false);
+      refs.cameraControlsRef.current.forward(0.015 * event.deltaTime, false);
     };
 
     const handleSKeyHold = (event) => {
-      refs.cameraControlsRef.current.forward(-0.03 * event.deltaTime, false);
+      refs.cameraControlsRef.current.forward(-0.015 * event.deltaTime, false);
+    };
+
+    const handleAltHold = (event) => {
+      refs.cameraControlsRef.current.truck(0, 0.015 * event.deltaTime, false);
+    };
+  
+    const handleSpacebarHold = (event) => {
+      refs.cameraControlsRef.current.truck(0, -0.015 * event.deltaTime, false);
     };
 
     const aKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.A, 16.666);
     const dKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.D, 16.666);
     const wKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.W, 16.666);
     const sKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.S, 16.666);
-
+    const altKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.ALT, 16.666);
+    const spacebarKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.SPACE, 16.666);
+  
     aKeyHold.addEventListener('holding', handleAKeyHold);
     dKeyHold.addEventListener('holding', handleDKeyHold);
     wKeyHold.addEventListener('holding', handleWKeyHold);
     sKeyHold.addEventListener('holding', handleSKeyHold);
-
+    altKeyHold.addEventListener('holding', handleAltHold);
+    spacebarKeyHold.addEventListener('holding', handleSpacebarHold);
+  
     return () => {
       aKeyHold.removeEventListener('holding', handleAKeyHold);
       dKeyHold.removeEventListener('holding', handleDKeyHold);
       wKeyHold.removeEventListener('holding', handleWKeyHold);
       sKeyHold.removeEventListener('holding', handleSKeyHold);
+      altKeyHold.removeEventListener('holding', handleAltHold);
+      spacebarKeyHold.removeEventListener('holding', handleSpacebarHold);
     };
   }, []);
 

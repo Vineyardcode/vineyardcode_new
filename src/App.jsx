@@ -49,8 +49,9 @@ export default function App() {
       <PerspectiveCamera
           ref={cameraRef}
           near={1}
-          makeDefault
-          position={[81.8,36.8,39.5 ]}
+          far={300}
+          makeDefaults
+
         /> 
 
         <Suspense fallback={null}>
@@ -107,9 +108,9 @@ export default function App() {
         enableZoom={false}
         maxAzimuthAngle={Infinity}
         minPolarAngle={0.51}
-        maxPolarAngle={Math.PI/2}
+        maxPolarAngle={Math.PI/2+1.5}
         boundaryEnclosesCamera
-//+1.9
+//
       />
 
 
