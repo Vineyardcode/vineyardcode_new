@@ -25,6 +25,9 @@ const GLTFModel = () => {
 
 export default function App() {
 
+
+
+
   const projectsRef = useRef();
   const stackRef = useRef();
   const contactRef = useRef();
@@ -48,18 +51,7 @@ export default function App() {
   }, []);
 
 
-  const setBoundary = (box3) => {
-    // Set the boundary box for the camera controls
-    cameraControlsRef.current.setBoundary(box3);
-  };
-  console.log("log");
-  const box3 = new THREE.Box3(
-    new THREE.Vector3(-100, -100, -100), // Minimum point of the boundary box
-    new THREE.Vector3(100, 100, 100) // Maximum point of the boundary box
-  );
 
-
-  // setBoundary={[225, 90, 290]}
 
   return (
     <Canvas>
@@ -68,8 +60,8 @@ export default function App() {
           
 
           ref={cameraRef}
-          near={1}
-          far={300}
+          near={5}
+          far={350}
 
           />
         
@@ -116,9 +108,6 @@ export default function App() {
             <Page5 />
           </group>
 
-
-
-
         <GLTFModel/>
         </Suspense>
 
@@ -130,9 +119,9 @@ export default function App() {
         enableZoom={true}
         maxDistance={500}
         maxAzimuthAngle={Infinity}
-        maxPolarAngle={Infinity}
-
-    
+        minPolarAngle={0.51}
+        maxPolarAngle={Math.PI/2+1.9}
+        boundaryEnclosesCamera
       />
 
     </Canvas>

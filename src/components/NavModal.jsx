@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import gsap from 'gsap';
 import { refs } from './Refs';
 import * as THREE from 'three'
@@ -52,7 +52,7 @@ const handleButtonClick = async (targetRef) => {
   normal.applyMatrix4(targetRef.current.children[0].children[0].matrixWorld);
   // normal.negate();
 
-  const distance = 47;
+  const distance = 30;
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
   gsap.to(currentPos, {
@@ -80,10 +80,25 @@ const handleButtonClick = async (targetRef) => {
       );
     },
   });
+
 };
 
 
+
+
 const NavigationButtons = () => {
+
+
+  useEffect(() => {
+    const box3 = new THREE.Box3(
+      new THREE.Vector3(-88, 0, -35),
+      new THREE.Vector3(60, 55, 190) 
+    );
+    refs.cameraControlsRef.current.setBoundary(box3);
+
+  }, [])
+
+
   return (
     <nav className="navButtons">
       
