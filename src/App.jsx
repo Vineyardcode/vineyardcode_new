@@ -50,8 +50,8 @@ export default function App() {
           ref={cameraRef}
           near={1}
           far={300}
-          makeDefaults
 
+          makeDefault
         /> 
 
         <Suspense fallback={null}>
