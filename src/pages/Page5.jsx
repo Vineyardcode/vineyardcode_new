@@ -18,7 +18,6 @@ export default function Page5() {
 
   useFrame((state) => {
 
-    
     const t = state.clock.getElapsedTime();
 
     group.current.rotation.x = THREE.MathUtils.lerp(
@@ -63,8 +62,6 @@ export default function Page5() {
             <div className="page5-nav">
               <NavigationButtons />
             </div>
-
-
 
             <div className="page5-main">
               <h3>Page 5</h3>

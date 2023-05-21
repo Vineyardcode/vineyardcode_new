@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { refs } from './Refs';
 import * as THREE from 'three'
 import { CameraControls } from '@react-three/drei';
+import * as holdEvent from 'hold-event'
 
 
 
@@ -52,7 +53,7 @@ const handleButtonClick = async (targetRef) => {
   normal.applyMatrix4(targetRef.current.children[0].children[0].matrixWorld);
   // normal.negate();
 
-  const distance = 30;
+  const distance = 37;
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
   gsap.to(currentPos, {
@@ -83,9 +84,6 @@ const handleButtonClick = async (targetRef) => {
 
 };
 
-
-
-
 const NavigationButtons = () => {
 
 
@@ -95,14 +93,55 @@ const NavigationButtons = () => {
       new THREE.Vector3(60, 55, 190) 
     );
     refs.cameraControlsRef.current.setBoundary(box3);
-
+    console.log(refs.cameraControlsRef.current.camera.near)
   }, [])
+ 
+  const KEYCODE = {
+    W: 87,
+    A: 65,
+    S: 83,
+    D: 68,
+  };
+  
+  useEffect(() => {
+    const handleAKeyHold = (event) => {
+      refs.cameraControlsRef.current.truck(-0.03 * event.deltaTime, 0, false);
+    };
 
+    const handleDKeyHold = (event) => {
+      refs.cameraControlsRef.current.truck(0.03 * event.deltaTime, 0, false);
+    };
+
+    const handleWKeyHold = (event) => {
+      refs.cameraControlsRef.current.forward(0.03 * event.deltaTime, false);
+    };
+
+    const handleSKeyHold = (event) => {
+      refs.cameraControlsRef.current.forward(-0.03 * event.deltaTime, false);
+    };
+
+    const aKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.A, 16.666);
+    const dKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.D, 16.666);
+    const wKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.W, 16.666);
+    const sKeyHold = new holdEvent.KeyboardKeyHold(KEYCODE.S, 16.666);
+
+    aKeyHold.addEventListener('holding', handleAKeyHold);
+    dKeyHold.addEventListener('holding', handleDKeyHold);
+    wKeyHold.addEventListener('holding', handleWKeyHold);
+    sKeyHold.addEventListener('holding', handleSKeyHold);
+
+    return () => {
+      aKeyHold.removeEventListener('holding', handleAKeyHold);
+      dKeyHold.removeEventListener('holding', handleDKeyHold);
+      wKeyHold.removeEventListener('holding', handleWKeyHold);
+      sKeyHold.removeEventListener('holding', handleSKeyHold);
+    };
+  }, []);
 
   return (
     <nav className="navButtons">
       
-        
+
           <button onClick={() => handleButtonClick(refs.projectsRef)}>Projects</button>
         
         

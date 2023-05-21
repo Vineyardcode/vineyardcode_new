@@ -11,22 +11,18 @@ import Page5 from "./pages/Page5";
 import { refs } from "./components/Refs";
 import NavigationButtons from "./components/NavModal";
 
+
+
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
 
   scene.scale.set(20, 20, 20);
   scene.position.set(0, 15, -100);
 
-
   return <primitive object={scene} />;
 };
 
-
-
 export default function App() {
-
-
-
 
   const projectsRef = useRef();
   const stackRef = useRef();
@@ -46,25 +42,17 @@ export default function App() {
     refs.cameraControlsRef = cameraControlsRef;
     refs.cameraRef = cameraRef;
     refs.orbitControlsRef = orbitControlsRef
-
-
   }, []);
-
-
-
 
   return (
     <Canvas>
-
-        <PerspectiveCamera 
-          
-
+      <PerspectiveCamera
           ref={cameraRef}
-          near={5}
-          far={350}
+          near={1}
+          makeDefault
+          position={[81.8,36.8,39.5 ]}
+        /> 
 
-          />
-        
         <Suspense fallback={null}>
 
           <group
@@ -116,17 +104,15 @@ export default function App() {
       <CameraControls 
         ref={cameraControlsRef}
         enablePan={false}
-        enableZoom={true}
-        maxDistance={500}
+        enableZoom={false}
         maxAzimuthAngle={Infinity}
         minPolarAngle={0.51}
-        maxPolarAngle={Math.PI/2+1.9}
+        maxPolarAngle={Math.PI/2}
         boundaryEnclosesCamera
+//+1.9
       />
+
 
     </Canvas>
   );
-
-
-
 }

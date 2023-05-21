@@ -72,12 +72,12 @@ export default function Projects() {
                   <h3>Code Examples</h3>
                   <div className="codeExamples-icons">
                     <div className="github">
-                      <a href='https://github.com/Vineyardcode'><FaGithub size={20} color='rgb(79, 32, 171)'/></a>
+                      <a href='https://github.com/Vineyardcode'><FaGithub size={50} color='rgb(79, 32, 171)'/></a>
                       <p>GitHub</p>
                     </div>
 
                     <div className='codePen'>    
-                      <a href='https://codepen.io/vineyardcode'><FaCodepen size={20} color='rgb(79, 32, 171)'/></a>
+                      <a href='https://codepen.io/vineyardcode'><FaCodepen size={50} color='rgb(79, 32, 171)'/></a>
                       <p>CodePen</p>
                     </div>
                   </div>
