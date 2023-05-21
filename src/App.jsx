@@ -50,7 +50,7 @@ export default function App() {
           ref={cameraRef}
           near={1}
           far={300}
-
+          position={[0,0,0]}
           makeDefault
         /> 
 
