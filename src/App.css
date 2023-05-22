@@ -16,6 +16,16 @@ main,
   
 }
 
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: '200px'; 
+  height: '10px';
+  background: '#ccc';
+  
+}
+
   .codeExamples {
     display: flex;
     flex-direction: column;
@@ -45,11 +55,11 @@ main,
     border: 2px solid black;
     padding: 0.6em 1.2em;
     font-size: 1em;
-    font-weight: 500;
+    font-weight: bold;
     font-family: inherit;
     cursor: pointer;
     transition: border-color 0.25s;
-    font-weight: bold;
+
   }
 
   .navButtons button:hover {
