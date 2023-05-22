@@ -47,7 +47,7 @@ export default function About() {
           <meshStandardMaterial 
             color={0xffffff}
           />
-          <Html 
+          <Html
             className="about"
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 

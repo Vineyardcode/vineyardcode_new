@@ -51,7 +51,7 @@ export default function App() {
   return (
     <>
     <Canvas>
-    <GLTFModel/>
+    
       <PerspectiveCamera
           ref={cameraRef}
           near={1}
@@ -62,7 +62,7 @@ export default function App() {
         /> 
 
         <Suspense fallback={null}>
-
+        <GLTFModel/>
           <group
             rotation={[1.571,-0.077,1.561]} 
             position={[81.8,36.8,39.5 ]}
@@ -104,7 +104,7 @@ export default function App() {
             
           </group>
 
-        
+         
         </Suspense>
 
       
@@ -126,7 +126,7 @@ export default function App() {
 
      <Environment preset="sunset" /> 
 
-    
+     
     </Canvas>
     <Loader />
     </>
