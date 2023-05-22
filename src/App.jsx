@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import React, { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls, Box } from '@react-three/drei';
+import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls, Box, useProgress, Loader } from '@react-three/drei';
 import './App.css';
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
@@ -10,7 +10,7 @@ import About from "./pages/About";
 import Page5 from "./pages/Page5";
 import { refs } from "./components/Refs";
 import NavigationButtons from "./components/NavModal";
-
+import { Loading } from "./components/Loading";
 
 
 const GLTFModel = () => {
@@ -21,6 +21,8 @@ const GLTFModel = () => {
 
   return <primitive object={scene} />;
 };
+
+
 
 export default function App() {
 
@@ -45,6 +47,7 @@ export default function App() {
   }, []);
 
   return (
+    <>
     <Canvas>
       <PerspectiveCamera
           ref={cameraRef}
@@ -61,7 +64,6 @@ export default function App() {
             position={[81.8,36.8,39.5 ]}
             ref={projectsRef}
           >
-
             <Projects />
           </group>
 
@@ -95,6 +97,7 @@ export default function App() {
             ref={page5Ref}
           >
             <Page5 />
+            <Html />
           </group>
 
         <GLTFModel/>
@@ -110,10 +113,13 @@ export default function App() {
         minPolarAngle={0.51}
         maxPolarAngle={Math.PI/2+1.5}
         boundaryEnclosesCamera
-//
+
       />
 
-
     </Canvas>
+    <Loader 
+    
+    />
+    </>
   );
 }
