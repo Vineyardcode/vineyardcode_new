@@ -29,9 +29,10 @@
 
   .kanjiApp a {
     
-    color: rgb(79, 32, 171);
+    text-decoration: underline;
     line-height: 42px;
     font-size: 41px;
     font-weight: bold;
 
   }
+
