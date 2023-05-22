@@ -51,11 +51,12 @@ export default function App() {
   return (
     <>
     <Canvas>
+    <GLTFModel/>
       <PerspectiveCamera
           ref={cameraRef}
           near={1}
           far={300}
-          enableZoom={false}
+          
           position={[0,0,0]}
           makeDefault
         /> 
@@ -94,7 +95,7 @@ export default function App() {
             <About />
           </group>
 
-          <group
+          <group 
             rotation={[1.49,0.01,-0.035]}
             position={[20.7,46.8,-42.6]}
             ref={page5Ref}
@@ -106,7 +107,7 @@ export default function App() {
         
         </Suspense>
 
-      <Environment preset="sunset" />
+      
 
       <CameraControls 
         ref={cameraControlsRef}
@@ -117,11 +118,15 @@ export default function App() {
         minPolarAngle={0.51}
         maxPolarAngle={Math.PI/2+1.5}
         boundaryEnclosesCamera
-        // minZoom={0.1}
-        // maxZoom={0.1}
+        minDistance={0}
+        maxDistance={25}
+        minZoom={0}
+        maxZoom={25}
       />
-      
-    <GLTFModel/>
+
+     <Environment preset="sunset" /> 
+
+    
     </Canvas>
 
     </>
