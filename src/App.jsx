@@ -61,7 +61,7 @@ export default function App() {
           makeDefault
         /> 
 
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={null}>
 
           <group
             rotation={[1.571,-0.077,1.561]} 
@@ -128,7 +128,7 @@ export default function App() {
 
     
     </Canvas>
-
+    <Loader />
     </>
   );
 }
