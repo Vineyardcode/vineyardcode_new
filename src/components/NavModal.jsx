@@ -95,8 +95,8 @@ const NavigationButtons = () => {
     refs.cameraControlsRef.current.setBoundary(box3);
     
     
-    refs.cameraControlsRef.current.setPosition(26, 50, 176);
-    refs.cameraControlsRef.current.setLookAt(26, 50, 176,26,49,196);
+    refs.cameraControlsRef.current.setPosition(26, 50, 165);
+    refs.cameraControlsRef.current.setLookAt(26, 50, 165,26,49,196);
     console.log(refs.cameraControlsRef.current.camera.position)
   }, [])
  

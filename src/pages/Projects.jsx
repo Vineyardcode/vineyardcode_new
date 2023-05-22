@@ -44,13 +44,15 @@ export default function Projects() {
          <boxGeometry args={[24.5, 1, 33.3]}/>
           <meshStandardMaterial 
             color={0xffffff}
+
           />
           <Html 
             className="projects"  
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.52,0]}
-            style={{ width: "983px", height: "1350px" }}
+            style={{ width: "983px", height: "1350px" }} 
+            zIndexRange={1}
           >
 
             <div className="projects-main">
@@ -60,28 +62,15 @@ export default function Projects() {
               </div>    
 
                 <div className="kanjiApp">
-                  <h5>
-                    <a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a>
-                  </h5>
+                  
+                    <h3><a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a></h3>
+                  
                     <p><b>Reviews kanji</b></p>
                     <p><b>Creates anki decks <br/> with animated <br/> stroke orders</b></p>
                     <p><b>and more...</b></p>
                 </div>  
                 
-                <div className="codeExamples">
-                  <h3>Code Examples</h3>
-                  <div className="codeExamples-icons">
-                    <div className="github">
-                      <a href='https://github.com/Vineyardcode'><FaGithub size={50} color='rgb(79, 32, 171)'/></a>
-                      <p>GitHub</p>
-                    </div>
 
-                    <div className='codePen'>    
-                      <a href='https://codepen.io/vineyardcode'><FaCodepen size={50} color='rgb(79, 32, 171)'/></a>
-                      <p>CodePen</p>
-                    </div>
-                  </div>
-                </div>
               </div>
           </Html>
           

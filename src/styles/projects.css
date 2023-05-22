@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 25px;
+
 } 
 
   .projects-main {
@@ -19,17 +20,18 @@
     height: 100%;
   }
 
-  .projects p, a {
+  .projects p {
     font-size: 25px;
     line-height: 25px;
     word-wrap: normal;
     font-weight: bold;
   }
 
-  .projects h3 {
-    text-decoration: underline;
-    line-height: 30px;
-    font-size: 30px;
-
+  .kanjiApp a {
+    
+    color: rgb(79, 32, 171);
+    line-height: 42px;
+    font-size: 41px;
+    font-weight: bold;
 
   }

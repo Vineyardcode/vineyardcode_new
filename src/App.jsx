@@ -3,6 +3,8 @@ import React, { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls, Box, useProgress, Loader } from '@react-three/drei';
 import './App.css';
+
+// components & pages
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
 import Contact from "./pages/Contact";
@@ -53,11 +55,12 @@ export default function App() {
           ref={cameraRef}
           near={1}
           far={300}
+          enableZoom={false}
           position={[0,0,0]}
           makeDefault
         /> 
 
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loading />}>
 
           <group
             rotation={[1.571,-0.077,1.561]} 
@@ -97,29 +100,30 @@ export default function App() {
             ref={page5Ref}
           >
             <Page5 />
-            <Html />
+            
           </group>
 
-        <GLTFModel/>
+        
         </Suspense>
 
-      <Environment preset="city" />
+      <Environment preset="sunset" />
 
       <CameraControls 
         ref={cameraControlsRef}
         enablePan={false}
         enableZoom={false}
+        
         maxAzimuthAngle={Infinity}
         minPolarAngle={0.51}
         maxPolarAngle={Math.PI/2+1.5}
         boundaryEnclosesCamera
-
+        // minZoom={0.1}
+        // maxZoom={0.1}
       />
-
+      
+    <GLTFModel/>
     </Canvas>
-    <Loader 
-    
-    />
+
     </>
   );
 }

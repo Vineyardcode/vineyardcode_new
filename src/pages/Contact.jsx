@@ -2,7 +2,7 @@ import * as THREE from "three";
 import React, { Suspense, useRef, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls } from '@react-three/drei';
-import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs } from "react-icons/all"
+import { FaGithub, FaCodepen, FaReact, FaJs, SiTypescript, FaPython, VscCode, SiVisualstudiocode, FaGit, FaGithubSquare, GiTBrick, DiGithubAlt, GoGithubAction, DiGithubBadge, RiGithubFill, DiGit, SiRedux, DiHtml5, DiCss3, SiPostgresql, DiGoogleCloudPlatform, DiFirebase, SiThreedotjs, FaTwitter } from "react-icons/all"
 import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
@@ -46,6 +46,7 @@ export default function Contact() {
         <meshStandardMaterial 
           color={0xffffff}
         />
+
         <Html 
             className="contact"  
             transform occlude="blending" 
@@ -53,22 +54,42 @@ export default function Contact() {
             position={[0,0.51,0]}
             style={{ width: "840.5px", height: "1020.47px" }}
           >
+ 
+          <div className="contact-main">
 
-          <div className="contact-main"> 
-      
-            <div className="contact-nav">
-              <NavigationButtons />
-            </div>
-            
-            <div className="contact-main">
-              <h3  className='flipLink'>Contact</h3>
-            </div>
+              <div className="contact-nav">
+                <NavigationButtons />
+              </div>
+              
+              <div className="contact-links">
 
-          </div>
+
+
+                <div>
+                  <FaTwitter size={50} color='rgb(79, 32, 171)' />
+                  <h3><a href="https://twitter.com/ZiegVie">Twitter</a></h3>
+                </div>
+
+                <div>
+                  <FaGithub size={50} color='rgb(79, 32, 171)'/>
+                  <h3><a href='https://github.com/Vineyardcode'>GitHub</a></h3>
+                </div>
+
+                <div>   
+                  <FaCodepen size={50} color='rgb(79, 32, 171)'/>
+                  <h3><a href='https://codepen.io/vineyardcode'>CodePen</a></h3>
+                </div>
+
+
+
+              </div>        
+                  
+          </div>  
 
         </Html>
+
       </mesh>
-        <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
+
     </group>
   );
 }
