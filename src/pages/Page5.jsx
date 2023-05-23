@@ -14,7 +14,7 @@ export default function Page5() {
 
   const group = useRef();
   const mesh = useRef();
-
+  const iframeRef = useRef();
 
   useFrame((state) => {
 
@@ -55,13 +55,13 @@ export default function Page5() {
           >
            
           <iframe
+            ref={iframeRef}
             width="592px"
             height="727px"
             src="https://heartandball.vercel.app/"
             title="ball"
-            frameborder="0"
-            allowfullscreen
-            sandbox
+            allowFullScreen
+
             >
 
           </iframe>

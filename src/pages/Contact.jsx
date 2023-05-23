@@ -75,12 +75,6 @@ export default function Contact() {
                   <h3><a href='https://github.com/Vineyardcode'>GitHub</a></h3>
                 </div>
 
-                <div>   
-                  <FaCodepen size={50} color='rgb(79, 32, 171)'/>
-                  <h3><a href='https://codepen.io/vineyardcode'>CodePen</a></h3>
-                </div>
-
-
 
               </div>        
                   

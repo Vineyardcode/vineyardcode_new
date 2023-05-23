@@ -3,7 +3,6 @@ import React, { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls, Box, useProgress, Loader } from '@react-three/drei';
 import './App.css';
-
 // components & pages
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
@@ -14,9 +13,6 @@ import { refs } from "./components/Refs";
 import NavigationButtons from "./components/NavModal";
 import { Loading } from "./components/Loading";
 import Controls from "./components/Controls";
-
-
-
 
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
@@ -35,8 +31,8 @@ export default function App() {
   const aboutRef = useRef();
   const page5Ref = useRef();
   const cameraControlsRef = useRef();
-  const cameraRef = useRef()
-  const orbitControlsRef = useRef()
+  const cameraRef = useRef();
+  const orbitControlsRef = useRef();
 
   useEffect(() => {
     refs.projectsRef = projectsRef;
@@ -46,7 +42,7 @@ export default function App() {
     refs.page5Ref = page5Ref;
     refs.cameraControlsRef = cameraControlsRef;
     refs.cameraRef = cameraRef;
-    refs.orbitControlsRef = orbitControlsRef
+    refs.orbitControlsRef = orbitControlsRef;
   }, []);
 
   return (
@@ -108,8 +104,6 @@ export default function App() {
          
         </Suspense>
 
-      
-
       <CameraControls 
         ref={cameraControlsRef}
         enablePan={false}
@@ -126,9 +120,9 @@ export default function App() {
 
      <Environment preset="sunset" /> 
 
-    <Controls />
-    </Canvas>
-    <Loader />
+      <Controls />
+      </Canvas>
+      <Loader />
     </>
   );
 }

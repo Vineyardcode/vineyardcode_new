@@ -54,24 +54,33 @@ export default function Projects() {
             style={{ width: "983px", height: "1350px" }} 
             zIndexRange={1}
           >
-
             <div className="projects-main">
 
-              <div className="stack-nav">
+              <div className="projects-nav">
                 <NavigationButtons />
-              </div>    
+              </div>  
 
-                <div className="kanjiApp">
-                  
-                    <h3><a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a></h3>
-                  
-                    <p><b>Reviews kanji</b></p>
-                    <p><b>Creates anki decks <br/> with animated <br/> stroke orders</b></p>
-                    <p><b>and more...</b></p>
-                </div>  
-                
+                <div className="projects-projects">   
 
-              </div>
+                  <div className="kanjiApp">
+                    
+                      <h3><a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a></h3>
+                    
+                      <p><b>Reviews kanji</b></p>
+                      <p><b>Creates anki decks <br/> with animated <br/> stroke orders</b></p>
+                      <p><b>and more...</b></p>
+                  </div>  
+                  
+                  <div className="codePen">
+                    <h3><a href='https://codepen.io/vineyardcode'>CodePen</a></h3>   
+                    <FaCodepen size={39} color='rgb(79, 32, 171)'/>
+                    <p><b>small scale projects <br/> and sketches</b></p>
+                    
+                  </div>
+                  
+                </div> 
+
+            </div>
           </Html>
           
       </mesh>
