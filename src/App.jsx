@@ -13,7 +13,7 @@ import Page5 from "./pages/Page5";
 import { refs } from "./components/Refs";
 import NavigationButtons from "./components/NavModal";
 import { Loading } from "./components/Loading";
-
+import Controls from "./components/Controls";
 
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
@@ -126,7 +126,7 @@ export default function App() {
 
      <Environment preset="sunset" /> 
 
-     
+    <Controls />
     </Canvas>
     <Loader />
     </>
