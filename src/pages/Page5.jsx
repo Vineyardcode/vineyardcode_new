@@ -58,10 +58,10 @@ export default function Page5() {
             width="592px"
             height="727px"
             src="https://heartandball.vercel.app/"
-            title="ballandball"
+            title="ball"
             frameborder="0"
             allowfullscreen
-            
+            sandbox
             >
 
           </iframe>
