@@ -9,7 +9,7 @@ import NavigationButtons from "../components/NavModal";
 import '../styles/page5.css'
 
 
-export default function Page5() {
+export default function Page6() {
 
 
   const group = useRef();
@@ -47,24 +47,25 @@ export default function Page5() {
         color={0xffffff}
       />
           <Html 
-            className="page5"  
+            className="page6"  
             transform occlude="blending" 
             rotation={[-Math.PI/2,0,0]} 
             position={[0,0.52,0]}
             style={{ width: "592px", height: "727px" }}
           >
            
-        <iframe
-          width="592px"
-          height="727px"
-          src="../api/cors-proxy"
-          title="ballandball"
-          frameborder="0"
-          allowfullscreen>
+          <div className="page6-main">
 
-          </iframe>
+            <div className="page6-nav">
+              <NavigationButtons />
+            </div>
 
+            <div className="page6-main">
+              <h3>Page 5</h3>
+              <h1>HELLO MOM ! ! !</h1>
+            </div>
 
+            </div> 
           </Html>
           
       </mesh>
@@ -72,4 +73,9 @@ export default function Page5() {
  
   );
 }
+
+
+
+
+
 
