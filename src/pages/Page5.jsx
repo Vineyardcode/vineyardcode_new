@@ -53,8 +53,30 @@ export default function Page5() {
             position={[0,0.52,0]}
             style={{ width: "592px", height: "727px" }}
           >
+            <div>
+        <iframe
+          width="592px"
+          height="727px"
+          src="//heartandball.vercel.app/"
+          title="ballandball"
+          frameborder="0"
+          allowfullscreen>
 
-            <iframe src="https://heartandball.vercel.app/" className="website-frame"></iframe>
+          </iframe>
+
+</div>
+          </Html>
+          
+      </mesh>
+    </group>
+ 
+  );
+}
+
+
+
+
+
 
 
             {/* <div className="page5-main">
@@ -69,12 +91,3 @@ export default function Page5() {
             </div>
 
             </div> */}
-
-          </Html>
-          
-      </mesh>
-      <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
-    </group>
- 
-  );
-}

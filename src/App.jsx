@@ -15,6 +15,9 @@ import NavigationButtons from "./components/NavModal";
 import { Loading } from "./components/Loading";
 import Controls from "./components/Controls";
 
+
+
+
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
 
@@ -23,8 +26,6 @@ const GLTFModel = () => {
 
   return <primitive object={scene} />;
 };
-
-
 
 export default function App() {
 
@@ -113,7 +114,6 @@ export default function App() {
         ref={cameraControlsRef}
         enablePan={false}
         enableZoom={false}
-        
         maxAzimuthAngle={Infinity}
         minPolarAngle={0.51}
         maxPolarAngle={Math.PI/2+1.5}

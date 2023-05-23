@@ -1,8 +1,8 @@
 import React,{useEffect} from 'react';
-import gsap from 'gsap';
+
 import { refs } from './Refs';
 import * as THREE from 'three'
-import { CameraControls } from '@react-three/drei';
+
 import * as holdEvent from 'hold-event'
 
 const Controls = () => {
