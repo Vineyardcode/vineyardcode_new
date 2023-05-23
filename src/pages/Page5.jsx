@@ -57,7 +57,7 @@ export default function Page5() {
           <iframe
             width="592px"
             height="727px"
-            src="heartandball.vercel.app/"
+            src="../api/cors-proxy"
             title="ballandball"
             frameborder="0"
             allowfullscreen
