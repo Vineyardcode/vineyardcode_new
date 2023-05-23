@@ -64,7 +64,7 @@ export default function About() {
 
               <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac ante vel purus dictum lacinia. Maecenas ut massa nec enim imperdiet rhoncus. Cras finibus ac enim non pulvinar. Vestibulum rutrum ex sit amet nibh malesuada, sit amet elementum quam mollis. Aenean eu magna lectus. Suspendisse ornare velit risus. Curabitur sem diam, sodales sed mauris in, imperdiet lobortis velit. Vestibulum euismod diam nec felis consequat consectetur. Nulla facilisi. Etiam lectus elit, ultrices a congue et, vehicula in magna. Proin nec sollicitudin purus, quis cursus ex. Fusce nisl metus, placerat in justo dapibus, egestas pharetra augue. Nunc ornare sapien at velit tempus sagittis.</h3>
 
-              <h3>This is just a model of the <a href="https://sketchfab.com/3d-models/the-king-s-hall-d18155613363445b9b68c0c67196d98d">King's Hall</a> by <a href="https://sketchfab.com/SkoklosterCastle">Skokloster Castle (Skoklosters slott)</a> licensed under<a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a>. I have built upon this model.</h3>
+              <h3>This is just a model of the <a href="https://sketchfab.com/3d-models/the-king-s-hall-d18155613363445b9b68c0c67196d98d">King's Hall</a> by <a href="https://sketchfab.com/SkoklosterCastle">Skokloster Castle (Skoklosters slott)</a> licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a>. I have built upon this model.</h3>
 
             </div>
             
