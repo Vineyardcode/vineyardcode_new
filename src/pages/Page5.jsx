@@ -14,7 +14,6 @@ export default function Page5() {
 
   const group = useRef();
   const mesh = useRef();
-  const iframeRef = useRef();
 
   useFrame((state) => {
 
@@ -37,41 +36,6 @@ export default function Page5() {
     // );
   });
 
-  useEffect(() => {
-    window.addEventListener("message", receiveMessage);
-
-    return () => {
-      window.removeEventListener("message", receiveMessage);
-    };
-  }, []);
-
-  useEffect(() => {
-    sendMessageToIframe();
-  }, []);
-
-  const receiveMessage = (event) => {
-    // IMPORTANT: Check the origin of the message
-    if (event.origin === "https://heartandball.vercel.app") {
-      // The message was sent from your site
-      console.log(event.data);
-    } else {
-      // The message was NOT sent from your site
-      // Be careful! Do not use it.
-      return;
-    }
-  };
-
-  const sendMessageToIframe = () => {
-    // IMPORTANT: Change the target origin to the origin of your iframe's content
-    const targetOrigin = "https://heartandball.vercel.app";
-
-    // Send a message to the iframe
-    iframeRef.current.contentWindow.postMessage(
-      "Hello from the other side!",
-      targetOrigin
-    );
-  };
-
 
   return (
 
@@ -91,7 +55,6 @@ export default function Page5() {
           >
            
           <iframe
-            ref={iframeRef}
             width="592px"
             height="727px"
             src="https://heartandball.vercel.app/"
