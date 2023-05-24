@@ -9,10 +9,6 @@ export default function Page5() {
   const mesh = useRef();
   const [iframeKey, setIframeKey] = useState(0); // Add a state for the iframe key
 
-
-
-
-
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
 
@@ -26,7 +22,7 @@ export default function Page5() {
 
   const refreshIframe = () => {
     setIframeKey((prevKey) => prevKey + 1);
-    console.log(iframeKey);
+    
   };
 
   useEffect(() => {
@@ -38,6 +34,7 @@ export default function Page5() {
 
     const timeout0 = setTimeout(() => {
       refreshIframe(); 
+      console.log(iframeKey);
     }, 5000);
 
     return () => {
