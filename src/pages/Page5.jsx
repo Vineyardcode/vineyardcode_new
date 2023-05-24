@@ -7,10 +7,11 @@ import '../styles/page5.css';
 export default function Page5() {
   const group = useRef();
   const mesh = useRef();
-  const [iframeReady, setIframeReady] = useState(false);
+  const iframeRef = useRef();
+
+  const [iframeKey, setIframeKey] = useState(0);
 
   useFrame((state) => {
-
     const t = state.clock.getElapsedTime();
 
     group.current.rotation.x = THREE.MathUtils.lerp(
@@ -21,18 +22,21 @@ export default function Page5() {
   });
 
   useEffect(() => {
-    // Change the iframe's src attribute when it becomes ready
-    if (iframeReady) {
-      const iframe = document.getElementById("myIframe");
-      iframe.src = "https://heartandball.vercel.app/";
-    }
-  }, [iframeReady]);
+    const interval = setInterval(() => {
+      setIframeKey(prevKey => prevKey + 1);
+      
+      if (iframeRef.current !== undefined) {
+        clearInterval(interval);
+        console.log(iframeRef.current);
+      }
+    }, 1000);
 
-
-  const handleIframeLoad = () => {
-    setIframeReady(true);
-  };
-
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+  
+  console.log(iframeRef.current);
   return (
     <group ref={group} dispose={null}>
       <mesh ref={mesh}>
@@ -46,16 +50,14 @@ export default function Page5() {
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
+            key={iframeKey}
             id="myIframe"
-
             width="592px"
             height="727px"
             src="https://heartandball.vercel.app/"
             title="ball"
             frameBorder={0}
             allowFullScreen
-            onLoad={handleIframeLoad}
-
           ></iframe>
         </Html>
       </mesh>
