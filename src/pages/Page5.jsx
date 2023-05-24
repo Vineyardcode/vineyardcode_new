@@ -26,7 +26,7 @@ export default function Page5() {
       setIframeKey(prevKey => prevKey + 1);
     }, 1000);
 
-    if (iframeKey >= 3) {
+    if (iframeKey >= 6) {
       clearInterval(interval);
     }
 
