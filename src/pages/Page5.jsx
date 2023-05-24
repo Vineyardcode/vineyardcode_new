@@ -24,19 +24,16 @@ export default function Page5() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIframeKey(prevKey => prevKey + 1);
-      const iframe = document.getElementById("myIframe");
-
-      if (iframeKey >= 5) {
-        clearInterval(interval);
-        
-      }
     }, 1000);
+
+    if (iframeKey >= 5) {
+      clearInterval(interval);
+    }
 
     return () => {
       clearInterval(interval);
     };
-    
-  }, []);
+  }, [iframeKey]);
 console.log(iframeKey);
   
   return (
