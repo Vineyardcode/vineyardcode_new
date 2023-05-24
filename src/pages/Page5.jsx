@@ -8,6 +8,7 @@ export default function Page5() {
   const group = useRef();
   const mesh = useRef();
   const [iframeKey, setIframeKey] = useState(0); // Add a state for the iframe key
+  const [iframeLoaded, setIframeLoaded] = useState(false); // Add a state to track the iframe load status
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -20,24 +21,35 @@ export default function Page5() {
   });
 
 
-  const refreshIframe = () => {
-    setIframeKey((prevKey) => prevKey + 1);
-    
+  const handleIframeLoad = () => {
+    setIframeLoaded(true); // Set iframe load status to true
   };
 
   useEffect(() => {
-    refreshIframe();
+    let interval; // Declare an interval variable
 
+    if (!iframeLoaded) {
+      // If iframe is not loaded
+      interval = setInterval(() => {
+        // Set interval to increment the key until the iframe is loaded
+        setIframeKey((prevKey) => prevKey + 1);
+      }, 100); // Interval duration can be adjusted as needed
+    }
+
+    return () => {
+      clearInterval(interval); // Clear the interval on component unmount
+    };
+  }, [iframeLoaded]);
+
+  useEffect(() => {
     const timeout = setTimeout(() => {
-      refreshIframe(); 
+      setIframeLoaded(true); // Set iframe load status to true after 2 seconds (in case iframe fails to load)
     }, 2000);
 
     return () => {
-      clearTimeout(timeout);
-
+      clearTimeout(timeout); // Clear the timeout on component unmount
     };
   }, []);
-
   console.log(iframeKey);
 
   return (
@@ -60,7 +72,8 @@ export default function Page5() {
             title="ball"
             frameBorder={0}
             allowFullScreen
-          
+            onLoad={handleIframeLoad}
+
           ></iframe>
         </Html>
       </mesh>
