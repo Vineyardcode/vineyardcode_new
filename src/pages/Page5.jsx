@@ -7,7 +7,20 @@ import '../styles/page5.css';
 export default function Page5() {
   const group = useRef();
   const mesh = useRef();
-  const [iframeReady, setIframeReady] = useState(false);
+  const iframeRef = useRef(null);
+  const [sceneReady, setSceneReady] = useState(false);
+
+  const handleIframeLoad = () => {
+    setSceneReady(true);
+  };
+
+  useEffect(() => {
+    if (sceneReady) {
+      // Refresh the iframe
+      iframeRef.current.contentWindow.location.reload();
+    }
+  }, [sceneReady]);
+
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -19,17 +32,8 @@ export default function Page5() {
     );
   });
 
-  useEffect(() => {
-    if (iframeReady) {
-      // Reload the iframe once the scene is ready
-      const iframe = document.getElementById("myIframe");
-      iframe.contentWindow.location.reload();
-    }
-  }, [iframeReady]);
 
-  const handleIframeLoad = () => {
-    setIframeReady(true);
-  };
+ 
 
   return (
     <group ref={group} dispose={null}>
@@ -44,14 +48,16 @@ export default function Page5() {
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
-            id="myIframe"
+                    ref={iframeRef}
+
             width="592px"
             height="727px"
             src="https://heartandball.vercel.app/"
             title="ball"
             frameBorder={0}
             allowFullScreen
-            // onLoad={handleIframeLoad}
+            onLoad={handleIframeLoad}
+
           ></iframe>
         </Html>
       </mesh>
