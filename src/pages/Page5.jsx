@@ -56,7 +56,7 @@ export default function Page5() {
             title="ball"
             frameBorder={0}
             allowFullScreen
-        
+            onLoad={handleIframeLoad}
 
           ></iframe>
         </Html>
