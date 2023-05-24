@@ -9,7 +9,6 @@ export default function Page5() {
   const mesh = useRef();
   const [iframeReady, setIframeReady] = useState(false);
 
-  
   useFrame((state) => {
 
     const t = state.clock.getElapsedTime();
@@ -20,8 +19,6 @@ export default function Page5() {
       0.01
     );
   });
-
-  
 
   useEffect(() => {
     // Change the iframe's src attribute when it becomes ready
