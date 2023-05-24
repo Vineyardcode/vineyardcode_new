@@ -7,8 +7,11 @@ import '../styles/page5.css';
 export default function Page5() {
   const group = useRef();
   const mesh = useRef();
+  const [iframeReady, setIframeReady] = useState(false);
 
+  
   useFrame((state) => {
+
     const t = state.clock.getElapsedTime();
 
     group.current.rotation.x = THREE.MathUtils.lerp(
@@ -18,7 +21,7 @@ export default function Page5() {
     );
   });
 
-  const [iframeReady, setIframeReady] = useState(false);
+  
 
   useEffect(() => {
     // Change the iframe's src attribute when it becomes ready
