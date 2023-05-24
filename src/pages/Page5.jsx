@@ -25,18 +25,24 @@ export default function Page5() {
 
 
   const refreshIframe = () => {
-    setIframeKey((prevKey) => prevKey + 1); // Update the iframe key to trigger refresh
+    setIframeKey((prevKey) => prevKey + 1);
+    console.log(iframeKey);
   };
 
   useEffect(() => {
-    refreshIframe(); // Run the refresh function once when the component mounts
+    refreshIframe();
 
     const timeout = setTimeout(() => {
-      refreshIframe(); // Run the refresh function again after 2 seconds
+      refreshIframe(); 
     }, 2000);
 
+    const timeout0 = setTimeout(() => {
+      refreshIframe(); 
+    }, 5000);
+
     return () => {
-      clearTimeout(timeout); // Clean up the timeout on component unmount
+      clearTimeout(timeout);
+      clearTimeout(timeout0);
     };
   }, []);
 
