@@ -24,19 +24,21 @@ export default function Page5() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIframeKey(prevKey => prevKey + 1);
-      
-      if (iframeRef.current !== undefined) {
+      const iframe = document.getElementById("myIframe");
+
+      if (iframeKey >= 5) {
         clearInterval(interval);
-        console.log(iframeRef.current);
+        
       }
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
+    
   }, []);
+console.log(iframeKey);
   
-  console.log(iframeRef.current);
   return (
     <group ref={group} dispose={null}>
       <mesh ref={mesh}>
