@@ -45,6 +45,8 @@ export default function App() {
     refs.orbitControlsRef = orbitControlsRef;
   }, []);
 
+
+
   return (
     <>
     <Canvas>
