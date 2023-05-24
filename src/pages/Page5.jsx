@@ -32,16 +32,13 @@ export default function Page5() {
       refreshIframe(); 
     }, 2000);
 
-    const timeout0 = setTimeout(() => {
-      refreshIframe(); 
-      console.log(iframeKey);
-    }, 5000);
-
     return () => {
       clearTimeout(timeout);
-      clearTimeout(timeout0);
+
     };
   }, []);
+
+  console.log(iframeKey);
 
   return (
     <group ref={group} dispose={null}>
@@ -56,17 +53,14 @@ export default function Page5() {
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
-                       key={iframeKey} // Add key prop to the iframe
-
-
+            key={iframeKey}
             width="592px"
             height="727px"
             src="https://heartandball.vercel.app/"
             title="ball"
             frameBorder={0}
             allowFullScreen
-            
-
+          
           ></iframe>
         </Html>
       </mesh>
