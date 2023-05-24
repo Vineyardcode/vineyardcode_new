@@ -7,19 +7,10 @@ import '../styles/page5.css';
 export default function Page5() {
   const group = useRef();
   const mesh = useRef();
-  const iframeRef = useRef(null);
-  const [sceneReady, setSceneReady] = useState(false);
+  const [iframeKey, setIframeKey] = useState(0); // Add a state for the iframe key
 
-  const handleIframeLoad = () => {
-    setSceneReady(true);
-  };
 
-  useEffect(() => {
-    if (sceneReady) {
-      // Refresh the iframe
-      iframeRef.current.contentWindow.location.reload();
-    }
-  }, [sceneReady]);
+
 
 
   useFrame((state) => {
@@ -33,7 +24,21 @@ export default function Page5() {
   });
 
 
- 
+  const refreshIframe = () => {
+    setIframeKey((prevKey) => prevKey + 1); // Update the iframe key to trigger refresh
+  };
+
+  useEffect(() => {
+    refreshIframe(); // Run the refresh function once when the component mounts
+
+    const timeout = setTimeout(() => {
+      refreshIframe(); // Run the refresh function again after 2 seconds
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout); // Clean up the timeout on component unmount
+    };
+  }, []);
 
   return (
     <group ref={group} dispose={null}>
@@ -48,7 +53,8 @@ export default function Page5() {
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
-                    ref={iframeRef}
+                       key={iframeKey} // Add key prop to the iframe
+
 
             width="592px"
             height="727px"
@@ -56,7 +62,8 @@ export default function Page5() {
             title="ball"
             frameBorder={0}
             allowFullScreen
-           
+            
+
           ></iframe>
         </Html>
       </mesh>
