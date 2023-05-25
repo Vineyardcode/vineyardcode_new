@@ -65,12 +65,12 @@ export default function Stack() {
 
                 <div>
                   <SiTypescript size={50} color='rgb(79, 32, 171)' title='TypeScript'/>
-                  <p>TS</p>
+                  <p>TypeScript</p>
                 </div>
 
                 <div>                 
                   <FaJs size={50} color='rgb(79, 32, 171)' title='JavaScript'/>
-                  <p>JS</p>
+                  <p>JavaScript</p>
                 </div>
 
                 <div>              

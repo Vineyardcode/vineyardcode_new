@@ -26,17 +26,18 @@ export default function Page5() {
       setIframeKey(prevKey => prevKey + 1);
     }, 1000);
 
-    if (iframeKey >= 5) {
+    if (iframeKey >= 3) {
       clearInterval(interval);
     }
 
     return () => {
       clearInterval(interval);
     };
+      
   }, [iframeKey]);
-  
-  console.log(iframeKey);
-  
+
+console.log(iframeKey);
+
   return (
     <group ref={group} dispose={null}>
       <mesh ref={mesh}>
@@ -50,14 +51,14 @@ export default function Page5() {
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
+            src={`https://heartandball.vercel.app/?timestamp=${Date.now()}`}
             key={iframeKey}
-            id="myIframe"
             width="592px"
             height="727px"
-            src="https://heartandball.vercel.app/"
             title="ball"
             frameBorder={0}
             allowFullScreen
+            ref={iframeRef}
           ></iframe>
         </Html>
       </mesh>

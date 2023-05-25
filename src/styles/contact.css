@@ -94,21 +94,23 @@
     }
 
     .contact-form input{
-      font-size: 25px;
+      font-size: 27px;
       margin: 0 10px 0 10px;
       background-color: transparent;
       border: none;
-      border-bottom: 3px solid black;
-      
+      border-bottom: 2.5px solid black;
+      font-weight: bold;
     }
 
     .contact-form textarea {
-      font-size: 25px;
+      font-size: 27px;
       margin: 0 10px 0 10px;
-
       resize: none;
       background-color: transparent;
       border: none;
+      padding: 10px; 
+      font-weight: bold;
+
     } 
 
   .contact-links div{
