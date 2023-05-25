@@ -26,7 +26,7 @@ export default function Page5() {
       setIframeKey(prevKey => prevKey + 1);
     }, 1000);
 
-    if (iframeKey >= 3) {
+    if (iframeKey >= 5) {
       clearInterval(interval);
     }
 
@@ -60,6 +60,7 @@ console.log(iframeKey);
             allowFullScreen
             ref={iframeRef}
           ></iframe>
+          
         </Html>
       </mesh>
     </group>
