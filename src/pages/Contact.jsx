@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
 import '../styles/contact.css'
+import EmailForm from "../components/EmailForm";
 
 
 
@@ -63,8 +64,6 @@ export default function Contact() {
               
               <div className="contact-links">
 
-
-
                 <div>
                   <FaTwitter size={50} color='rgb(79, 32, 171)' />
                   <h3><a href="https://twitter.com/ZiegVie">Twitter</a></h3>
@@ -74,9 +73,13 @@ export default function Contact() {
                   <FaGithub size={50} color='rgb(79, 32, 171)'/>
                   <h3><a href='https://github.com/Vineyardcode'>GitHub</a></h3>
                 </div>
-
-
               </div>        
+
+              <div className="emailForm">
+                <EmailForm />
+              </div>
+
+                 
                   
           </div>  
 

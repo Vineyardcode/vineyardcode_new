@@ -61,8 +61,8 @@ export default function Page6() {
             </div>
 
             <div className="page6-main">
-              <h3>Page 5</h3>
-              <h1>HELLO MOM ! ! !</h1>
+              <h3>Page 6</h3>
+              <h1></h1>
             </div>
 
             </div> 

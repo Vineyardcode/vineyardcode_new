@@ -2,8 +2,7 @@
   padding: 1rem;
   display: flex;
   background-color: black;
-  color: rgb(0, 0, 0);
-  text-shadow: 0.7px 0.1px 0.1px white;
+  color: #000000;
   background-image: url('/img/Leonardo_Diffusion_website_background_frame_baroque_pattern_go_0.jpg');
   background-repeat: no-repeat;
   background-size: cover;

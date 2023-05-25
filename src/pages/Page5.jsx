@@ -26,7 +26,7 @@ export default function Page5() {
       setIframeKey(prevKey => prevKey + 1);
     }, 1000);
 
-    if (iframeKey >= 6) {
+    if (iframeKey >= 5) {
       clearInterval(interval);
     }
 
@@ -34,7 +34,8 @@ export default function Page5() {
       clearInterval(interval);
     };
   }, [iframeKey]);
-console.log(iframeKey);
+  
+  console.log(iframeKey);
   
   return (
     <group ref={group} dispose={null}>
