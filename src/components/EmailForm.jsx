@@ -36,9 +36,10 @@ export default function EmailForm() {
     <div className="contact-form">
       <h2>Write me an email</h2>
       <form onSubmit={handleSubmit}>
+
         <div>
           
-          <label htmlFor="name">Your name:</label>
+          <label htmlFor="name">Your name</label>
           <input
             type="text"
             id="name"
@@ -49,7 +50,7 @@ export default function EmailForm() {
         </div>
 
         <div>
-          <label htmlFor="email">Your email:</label>
+          <label htmlFor="email">Your email</label>
           <input
             type="email"
             id="email"
@@ -60,15 +61,19 @@ export default function EmailForm() {
         </div>
 
         <div>
-          <label htmlFor="message">Your message:</label>
+          <label htmlFor="message">Your message</label>
           <textarea
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
+            rows="5"
           ></textarea>
         </div>
-        <button type="submit">Send</button>
+       
+       
+          <button type="submit"><h2>Send</h2></button>
+       
       </form>
     </div>
   );
