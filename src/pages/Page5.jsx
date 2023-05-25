@@ -51,7 +51,7 @@ console.log(iframeKey);
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
-            src={`https://heartandball.vercel.app/?timestamp=${Date.now()}`}
+            src={`https://heartandball.vercel.app/`}
             key={iframeKey}
             width="592px"
             height="727px"
