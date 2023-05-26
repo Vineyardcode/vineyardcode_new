@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html } from '@react-three/drei';
 import '../styles/page5.css';
-import { useQuery, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 
 export default function Page5() {
@@ -27,7 +26,6 @@ export default function Page5() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIframeKey(prevKey => prevKey + 1);
-      iframeRef.current.contentWindow.location.reload()
     }, 1000);
 
     if (iframeKey >= 5) {
