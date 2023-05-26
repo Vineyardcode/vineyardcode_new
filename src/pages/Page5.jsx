@@ -3,6 +3,8 @@ import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html } from '@react-three/drei';
 import '../styles/page5.css';
+import { useQuery, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
 
 export default function Page5() {
   const group = useRef();
@@ -10,6 +12,7 @@ export default function Page5() {
   const iframeRef = useRef();
 
   const [iframeKey, setIframeKey] = useState(0);
+
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -24,6 +27,7 @@ export default function Page5() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIframeKey(prevKey => prevKey + 1);
+      iframeRef.current.contentWindow.location.reload()
     }, 1000);
 
     if (iframeKey >= 5) {
@@ -35,8 +39,6 @@ export default function Page5() {
     };
       
   }, [iframeKey]);
-
-console.log(iframeKey);
 
   return (
     <group ref={group} dispose={null}>
@@ -51,6 +53,7 @@ console.log(iframeKey);
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
+          id="iframe"
             src={`https://heartandball.vercel.app/`}
             key={iframeKey}
             width="592px"
@@ -59,6 +62,7 @@ console.log(iframeKey);
             frameBorder={0}
             allowFullScreen
             ref={iframeRef}
+
           ></iframe>
           
         </Html>
