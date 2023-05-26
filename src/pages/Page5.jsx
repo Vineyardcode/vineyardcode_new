@@ -37,7 +37,8 @@ export default function Page5() {
     };
       
   }, [iframeKey]);
-
+  
+  console.log(iframeKey);
   return (
     <group ref={group} dispose={null}>
       <mesh ref={mesh}>
@@ -51,7 +52,6 @@ export default function Page5() {
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
-          id="iframe"
             src={`https://heartandball.vercel.app/`}
             key={iframeKey}
             width="592px"
