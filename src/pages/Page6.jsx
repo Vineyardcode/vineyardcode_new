@@ -25,16 +25,7 @@ export default function Page6() {
       Math.cos(t / 2) / 1000 + 0.1,
       0.01
     );
-    // group.current.rotation.y = THREE.MathUtils.lerp(
-    //   group.current.rotation.y,
-    //   Math.sin(t / 4) / 100,
-    //   0.1
-    // );
-    // group.current.rotation.z = THREE.MathUtils.lerp(
-    //   group.current.rotation.z,
-    //   Math.sin(t / 8) / 100,
-    //   0.1
-    // );
+
   });
 
   return (
