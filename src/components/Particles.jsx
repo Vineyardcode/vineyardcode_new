@@ -6,13 +6,13 @@ import { refs } from "./Refs";
 const ParticleSystem = () => {
   const count = 250;
   const positions = new Float32Array(count * 3);
-  const velocities = new Float32Array(count * 3);
+  const colors = new Float32Array(count * 3);
 
   const centerX = 0; // X coordinate of the center
   const centerY = 0; // Y coordinate of the center
 
-  const frameWidth = 25; // Width of the frame rectangle
-  const frameHeight = 30; // Height of the frame rectangle
+  const frameWidth = 22; // Width of the frame rectangle
+  const frameHeight = 25; // Height of the frame rectangle
   const innerWidth = 15; // Width of the empty space in the middle
   const innerHeight = 20; // Height of the empty space in the middle
 
@@ -37,18 +37,15 @@ const ParticleSystem = () => {
     positions[i3 + 1] = y; // Set Y position within the frame rectangle
     positions[i3 + 2] = 0;
 
-    const directionX = centerX - x; // Adjust the X direction
-    const directionY = centerY - y; // Adjust the Y direction
+    colors[i3 + 0] = x / frameWidth+0.6; // R component (range: 0-1)
+    colors[i3 + 1] = y / frameHeight*0; // G component (range: 0-1)
+    colors[i3 + 2] = 1; // B component (range: 0-1)
 
-    velocities[i3 + 0] = 0.1; // Velocity in X direction
-    velocities[i3 + 1] = 0.1; // Velocity in Y direction
-    velocities[i3 + 2] = 0; // No velocity in Z direction
   }
 
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute("velocity", new THREE.BufferAttribute(velocities, 3));
-
+  geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
   const particlesRef = useRef();
 
   useFrame(() => {
@@ -87,8 +84,8 @@ const ParticleSystem = () => {
         positions[i3 + 1] = y; // Set new Y position within the frame rectangle
         positions[i3 + 2] = 0; // Reset Z position to 0
       } else {
-        positions[i3 + 0] += (positionX - centerX) * 0.001; // Adjust the X position
-        positions[i3 + 1] += (positionY - centerY) * 0.001; // Adjust the Y position
+        positions[i3 + 0] += (positionX - centerX) * 0.003; // Adjust the X position
+        positions[i3 + 1] += (positionY - centerY) * 0.003; // Adjust the Y position
         positions[i3 + 2] += (positionZ - 0) * 0.01; // Adjust the Z position
       }
     }
@@ -98,7 +95,7 @@ const ParticleSystem = () => {
 
   const material = new THREE.PointsMaterial({
     size: 1,
-    color: 0xff00ff, // Set the color to golden
+    vertexColors: true,
     sizeAttenuation: true,
     depthWrite: false,
   });
