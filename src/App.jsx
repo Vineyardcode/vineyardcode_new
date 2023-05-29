@@ -13,6 +13,7 @@ import { refs } from "./components/Refs";
 import NavigationButtons from "./components/NavModal";
 import { Loading } from "./components/Loading";
 import Controls from "./components/Controls";
+import ParticleSystem from "./components/Particles";
 
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
@@ -102,7 +103,8 @@ export default function App() {
             
           </group>
 
-         
+          <ParticleSystem />
+
         </Suspense>
 
       <CameraControls 
@@ -114,9 +116,9 @@ export default function App() {
         maxPolarAngle={Math.PI/2+1.5}
         boundaryEnclosesCamera
         minDistance={0}
-        maxDistance={25}
+        maxDistance={35}
         minZoom={0}
-        maxZoom={25}
+        maxZoom={35}
       />
 
      <Environment preset="sunset" /> 
