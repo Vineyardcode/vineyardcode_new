@@ -3,26 +3,33 @@ import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { refs } from "./Refs";
 
-const ParticleSystem = () => {
-  const count = 250;
+const ParticleSystem = ({
+  groupPosition,
+  groupRotation,
+  particleSize,
+  particleCount,
+  frameWidth,
+  frameHeight,
+  innerWidth,
+  innerHeight,
+  colorR,
+  colorG,
+  colorB,
+}) => {
+  const count = particleCount;
   const positions = new Float32Array(count * 3);
   const colors = new Float32Array(count * 3);
 
-  const centerX = 0; // X coordinate of the center
-  const centerY = 0; // Y coordinate of the center
+  const centerX = 0;
+  const centerY = 0;
 
-  const frameWidth = 22; // Width of the frame rectangle
-  const frameHeight = 25; // Height of the frame rectangle
-  const innerWidth = 15; // Width of the empty space in the middle
-  const innerHeight = 20; // Height of the empty space in the middle
-
-  const startX = -frameWidth / 2; // X coordinate of the starting position
-  const startY = -frameHeight / 2; // Y coordinate of the starting position
+  const startX = -frameWidth / 2;
+  const startY = -frameHeight / 2;
+  
 
   for (let i = 0; i < count; i++) {
     let x, y;
 
-    // Generate random positions within the frame rectangle
     do {
       x = startX + Math.random() * frameWidth;
       y = startY + Math.random() * frameHeight;
@@ -33,75 +40,81 @@ const ParticleSystem = () => {
 
     const i3 = i * 3;
 
-    positions[i3 + 0] = x; // Set X position within the frame rectangle
-    positions[i3 + 1] = y; // Set Y position within the frame rectangle
+    positions[i3 + 0] = x;
+    positions[i3 + 1] = y;
     positions[i3 + 2] = 0;
 
-    colors[i3 + 0] = x / frameWidth+0.6; // R component (range: 0-1)
-    colors[i3 + 1] = y / frameHeight*0; // G component (range: 0-1)
-    colors[i3 + 2] = 1; // B component (range: 0-1)
-
+    colors[i3 + 0] = x / frameWidth + colorR; // R component (range: 0-1)
+    colors[i3 + 1] = y / frameHeight * colorG; // G component (range: 0-1)
+    colors[i3 + 2] = colorB;
   }
 
-  const geometry = new THREE.BufferGeometry();
+  const geometry = new THREE.BufferGeometry()
+
+
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
   const particlesRef = useRef();
 
   useFrame(() => {
     const positions = particlesRef.current.geometry.attributes.position.array;
-
+  
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
-
+  
       const positionX = positions[i3 + 0];
       const positionY = positions[i3 + 1];
       const positionZ = positions[i3 + 2];
-
+  
       const distanceX = Math.abs(positionX - centerX);
       const distanceY = Math.abs(positionY - centerY);
-
-      const xLimit = frameWidth / 2; // Half the width of the frame rectangle
-      const yLimit = frameHeight / 2; // Half the height of the frame rectangle
-
+      const distanceZ = Math.abs(positionZ);
+  
+      const xLimit = frameWidth / 2;
+      const yLimit = frameHeight / 2;
+      const zLimit = 3; 
+  
       if (
         distanceX > xLimit - 0.5 ||
         distanceY > yLimit - 0.5 ||
+        distanceZ > zLimit ||
         (distanceX < innerWidth / 2 && distanceY < innerHeight / 2)
       ) {
-        let x, y;
-
-        // Generate new random positions within the frame rectangle
+        let x, y, z;
+  
         do {
           x = startX + Math.random() * frameWidth;
           y = startY + Math.random() * frameHeight;
+          z = -Math.random() * zLimit; 
         } while (
           (x > centerX - innerWidth / 2 && x < centerX + innerWidth / 2) &&
-          (y > centerY - innerHeight / 2 && y < centerY + innerHeight / 2)
+          (y > centerY - innerHeight / 2 && y < centerY + innerHeight / 2) &&
+          (z > -zLimit)
         );
-
-        positions[i3 + 0] = x; // Set new X position within the frame rectangle
-        positions[i3 + 1] = y; // Set new Y position within the frame rectangle
-        positions[i3 + 2] = 0; // Reset Z position to 0
+  
+        positions[i3 + 0] = x;
+        positions[i3 + 1] = y;
+        positions[i3 + 2] = z;
       } else {
-        positions[i3 + 0] += (positionX - centerX) * 0.003; // Adjust the X position
-        positions[i3 + 1] += (positionY - centerY) * 0.003; // Adjust the Y position
-        positions[i3 + 2] += (positionZ - 0) * 0.01; // Adjust the Z position
+        positions[i3 + 0] += (positionX - centerX) * 0.0007;
+        positions[i3 + 1] += (positionY + centerY) * 0.0007;
+        positions[i3 + 2] += (positionZ + .1) * 0.003;
       }
     }
-
+  
     particlesRef.current.geometry.attributes.position.needsUpdate = true;
   });
+  
 
   const material = new THREE.PointsMaterial({
-    size: 1,
+    size: particleSize,
     vertexColors: true,
     sizeAttenuation: true,
     depthWrite: false,
   });
 
   return (
-    <group position={[20.7, 46.8, -42]}>
+    <group position={groupPosition} rotation={groupRotation}>
       <points ref={particlesRef} geometry={geometry} material={material} frustumCulled={false} />
     </group>
   );
