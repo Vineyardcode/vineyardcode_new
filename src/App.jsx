@@ -3,17 +3,19 @@ import React, { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { TransformControls, PivotControls , Html, Environment, useGLTF, ContactShadows, OrbitControls, PerspectiveCamera, CameraControls, TrackballControls, Box, useProgress, Loader } from '@react-three/drei';
 import './App.css';
-// components & pages
+// pages
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Page5 from "./pages/Page5";
+// components 
 import { refs } from "./components/Refs";
 import NavigationButtons from "./components/NavModal";
 import { Loading } from "./components/Loading";
 import Controls from "./components/Controls";
 import ParticleSystem from "./components/Particles";
+import Frame from "./components/Frame";
 
 const GLTFModel = () => {
   const { scene } = useGLTF('/scene.gltf');
@@ -62,6 +64,9 @@ export default function App() {
 
         <Suspense fallback={null}>
         <GLTFModel/>
+        {/* <Frame width={25} height={10} depth={30} position={[-10, 35, 42]} rotation={[1.571,-0.077,1.561]}/> */}
+
+
           <group
             rotation={[1.571,-0.077,1.561]} 
             position={[81.8,36.8,39.5 ]}
@@ -106,17 +111,17 @@ export default function App() {
             <Contact />
           </group>
           <ParticleSystem
-            groupPosition={[-97,47.4,13.2]}
+            groupPosition={[-96,47.4,13.2]}
             groupRotation={[1.58,1.55,-1.6]}
-            particleSize={0.5}
-            particleCount={500}
+            particleSize={1}
+            particleCount={1000}
             frameWidth={27}
-            frameHeight={32}
-            innerWidth={19}
+            frameHeight={34}
+            innerWidth={20}
             innerHeight={25}
-            colorR={10}
-            colorG={1}
-            colorB={0}
+            colorR={2}
+            colorG={0.5}
+            colorB={0.1}
           />
 
           <group
@@ -137,12 +142,6 @@ export default function App() {
             colorB={1}
           /> */}
 
-
-
-
-
-
-
           <group 
             rotation={[1.49,0.01,-0.035]}
             position={[20.7,46.8,-42.6]}
@@ -154,7 +153,7 @@ export default function App() {
             groupPosition={[20.7, 46.8, -41]}
             groupRotation={[0,0.01,0.01]}
             particleSize={1}
-            particleCount={300}
+            particleCount={1000}
             frameWidth={22}
             frameHeight={28}
             innerWidth={15}

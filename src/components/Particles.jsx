@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import React, { useRef } from "react";
+
 import { useFrame } from "@react-three/fiber";
 import { refs } from "./Refs";
 
@@ -54,6 +55,9 @@ const ParticleSystem = ({
 
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+
+  
   const particlesRef = useRef();
 
   useFrame(() => {
@@ -97,8 +101,8 @@ const ParticleSystem = ({
         positions[i3 + 2] = z;
       } else {
         positions[i3 + 0] += (positionX - centerX) * 0.0007;
-        positions[i3 + 1] += (positionY + centerY) * 0.0007;
-        positions[i3 + 2] += (positionZ + .1) * 0.003;
+        positions[i3 + 1] += (positionY - centerY) * 0.0007;
+        positions[i3 + 2] += (positionZ + .1) * 0.03;
       }
     }
   
