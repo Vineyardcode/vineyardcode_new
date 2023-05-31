@@ -66,7 +66,6 @@ export default function App() {
         <GLTFModel/>
         {/* <Frame width={25} height={10} depth={30} position={[-10, 35, 42]} rotation={[1.571,-0.077,1.561]}/> */}
 
-
           <group
             rotation={[1.571,-0.077,1.561]} 
             position={[81.8,36.8,39.5 ]}
@@ -162,8 +161,6 @@ export default function App() {
             colorG={0.5}
             colorB={1}
           />
-
-
 
         </Suspense>
 

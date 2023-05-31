@@ -56,7 +56,7 @@ const handleButtonClick = async (targetRef) => {
   const cameraPosition = center.clone().add(normal.clone().multiplyScalar(distance));
   
   gsap.to(currentPos, {
-    duration: 1,
+    duration: 1.75,
     x: cameraPosition.x,
     y: cameraPosition.y,
     z: cameraPosition.z,

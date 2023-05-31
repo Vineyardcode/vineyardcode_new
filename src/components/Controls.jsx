@@ -1,8 +1,6 @@
 import React,{useEffect} from 'react';
-
 import { refs } from './Refs';
 import * as THREE from 'three'
-
 import * as holdEvent from 'hold-event'
 
 const Controls = () => {
@@ -65,8 +63,6 @@ const Controls = () => {
     };
   }, []);
   
-  
-
   return
 };
 
