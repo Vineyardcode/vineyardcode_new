@@ -92,14 +92,17 @@ export default function App() {
             <Stack />
           </group>
           {/* <ParticleSystem
-            groupPosition={[80.37,48.1,6.3]}
-            frameWidth={22}
-            frameHeight={25}
-            innerWidth={15}
-            innerHeight={20}
-            colorR={0.006}
-            colorG={0.5}
-            colorB={1}
+            groupPosition={[80,48,6.3]}
+            groupRotation={[1.57,1.57,1.58]}
+            particleSize={1}
+            particleCount={1000}
+            frameWidth={32}
+            frameHeight={37}
+            innerWidth={22}
+            innerHeight={28}
+            colorR={0}
+            colorG={0}
+            colorB={0}
           /> */}
 
           <group
@@ -109,7 +112,7 @@ export default function App() {
           >
             <Contact />
           </group>
-          <ParticleSystem
+          {/* <ParticleSystem
             groupPosition={[-96,47.4,13.2]}
             groupRotation={[1.58,1.55,-1.6]}
             particleSize={1}
@@ -118,10 +121,10 @@ export default function App() {
             frameHeight={34}
             innerWidth={20}
             innerHeight={25}
-            colorR={2}
-            colorG={0.5}
-            colorB={0.1}
-          />
+            colorR={0.5}
+            colorG={0}
+            colorB={0.5}
+          /> */}
 
           <group
             rotation={[1.65,0.01,3.1]}

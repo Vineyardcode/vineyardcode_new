@@ -46,7 +46,7 @@ const ParticleSystem = ({
     positions[i3 + 2] = 0;
 
     colors[i3 + 0] = x / frameWidth + colorR; // R component (range: 0-1)
-    colors[i3 + 1] = y / frameHeight * colorG; // G component (range: 0-1)
+    colors[i3 + 1] = y / frameHeight + colorG; // G component (range: 0-1)
     colors[i3 + 2] = colorB;
   }
 

@@ -56,33 +56,26 @@ export default function Contact() {
             style={{ width: "840.5px", height: "1020.47px" }}
           >
  
-          <div className="contact-main">
+            <iframe src="/gif/tunnel.gif" 
+              frameBorder={0}
+              width="840"
+              height="1021"
+              allowFullScreen
+            ></iframe>
 
-              <div className="contact-nav">
-                <NavigationButtons />
-              </div>
+
+          
+        </Html>
+
+        <Html
+          className="tag-tunnel"  
+          transform occlude="blending" 
+          rotation={[-Math.PI/2,0,0]} 
+          position={[0,1,15]}
+          style={{ width: "500px", height: "100px" }}
+          >
+            <a href="https://tunnelvision.vercel.app/">TUNNELVISION AUDIOVISUALIZER</a>
               
-              <div className="contact-links">
-
-                <div>
-                  <FaTwitter size={50} color='rgb(79, 32, 171)' />
-                  <h3><a href="https://twitter.com/ZiegVie">Twitter</a></h3>
-                </div>
-
-                <div>
-                  <FaGithub size={50} color='rgb(79, 32, 171)'/>
-                  <h3><a href='https://github.com/Vineyardcode'>GitHub</a></h3>
-                </div>
-              </div>        
-
-              <div className="emailForm">
-                <EmailForm />
-              </div>
-
-                 
-                  
-          </div>  
-
         </Html>
 
       </mesh>

@@ -56,75 +56,29 @@ export default function Stack() {
             style={{ width: "839px", height: "1025px" }}
 
           >
-            <div className="stack-main">
-            
-              <NavigationButtons />
 
-              <h3>What I like <br/> to work with</h3>
-              <div className="icons">
+          <iframe src="/gif/terrain.gif" 
+              frameBorder={0}
+              width="840px"
+              height="1025px"
+              allowFullScreen
+            ></iframe>
+            </Html>
 
-                <div>
-                  <SiTypescript size={50} color='rgb(79, 32, 171)' title='TypeScript'/>
-                  <p>TypeScript</p>
-                </div>
 
-                <div>                 
-                  <FaJs size={50} color='rgb(79, 32, 171)' title='JavaScript'/>
-                  <p>JavaScript</p>
-                </div>
+        <Html
+          className="tag-terrain"  
+          transform occlude="blending" 
+          rotation={[-Math.PI/2,0,0]} 
+          position={[0,1,15]}
+          style={{ width: "500px", height: "100px" }}
+          >
+            <a href="https://terrain-puce.vercel.app/">TERRAIN</a>
+              
+        </Html>
 
-                <div>              
-                  <FaReact size={50} color='rgb(79, 32, 171)' title='React'/>
-                  <p>React</p>
-                </div>
 
-                <div>            
-                  <FaPython size={50} color='rgb(79, 32, 171)' title='Python'/>
-                  <p>Python</p>
-                </div> 
-
-                <div>   
-                  <SiVisualstudiocode size={50} color='rgb(79, 32, 171)' title='VS Code'/>
-                  <p>VSCode</p>
-                </div>
-
-                <div>                
-                  <DiGit size={50} color='rgb(79, 32, 171)' title='Git'/>
-                  <p>Git</p>
-                </div>
-
-                <div>              
-                  <SiRedux size={50} color='rgb(79, 32, 171)' title='Redux'/>
-                  <p>Redux</p>
-                </div>
-
-                <div>              
-                  <DiHtml5 size={50} color='rgb(79, 32, 171)' title='HTML5'/>
-                  <p>HTML5</p>
-                </div>
-
-                <div>               
-                  <DiCss3 size={50} color='rgb(79, 32, 171)' title='CSS'/>
-                  <p>CSS</p>
-                </div>
-
-                <div>           
-                  <DiFirebase size={50} color='rgb(79, 32, 171)' title='Firebase'/>
-                  <p>Firebase</p>
-                </div>
-
-                <div>           
-                  <SiThreedotjs size={50} color='rgb(79, 32, 171)' title='Three.js'/>
-                  <p>Three.js</p>
-                </div>
-
-              </div>
-
-            </div>
-          </Html>
-      </mesh>
-        <ContactShadows position={[0, -9, 0]} scale={30} blur={2} far={15} />
-
+        </mesh>
     </group>
   );
 }

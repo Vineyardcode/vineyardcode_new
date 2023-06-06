@@ -52,7 +52,7 @@ export default function Page5() {
           style={{ width: "592px", height: "727px" }}
         >
           <iframe
-            src={`https://heartandball.vercel.app/`}
+            src="/gif/heartandball.gif"
             key={iframeKey}
             width="592px"
             height="727px"
@@ -63,6 +63,16 @@ export default function Page5() {
 
           ></iframe>
           
+        </Html>
+        <Html
+          className="tag-heart"  
+          transform occlude="blending" 
+          rotation={[-Math.PI/2,0,0]} 
+          position={[0,3,15]}
+          style={{ width: "500px", height: "100px" }}
+          >
+            <a href="https://heartandball.vercel.app/">HEART & BALL</a>
+              
         </Html>
       </mesh>
     </group>

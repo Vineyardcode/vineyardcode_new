@@ -14,6 +14,10 @@ export default function Projects() {
   const group = useRef();
   const mesh = useRef();
 
+  //rhombuses
+  const [divCount, setDivCount] = useState(0);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
   useFrame((state) => {
 
     const t = state.clock.getElapsedTime();
@@ -23,18 +27,34 @@ export default function Projects() {
       Math.cos(t / 2) / 1000 + 0.1,
       0.01
     );
-    // group.current.rotation.y = THREE.MathUtils.lerp(
-    //   group.current.rotation.y,
-    //   Math.sin(t / 4) / 100,
-    //   0.1
-    // );
-    // group.current.rotation.z = THREE.MathUtils.lerp(
-    //   group.current.rotation.z,
-    //   Math.sin(t / 8) / 100,
-    //   0.1
-    // );
     
   });
+
+
+  useEffect(() => {
+
+    let xIncrement = 10;
+    let yIncrement = 10;
+    const intervalId = setInterval(() => {
+      setPosition(prevPosition => {
+        const nextX = prevPosition.x + xIncrement;
+        const nextY = prevPosition.y + yIncrement;
+        if (nextX > window.innerWidth || nextX < 0) {
+          xIncrement *= -1;
+        }
+        if (nextY > window.innerHeight || nextY < 0) {
+          yIncrement *= -1;
+        }
+        return {
+          x: prevPosition.x + xIncrement,
+          y: prevPosition.y + yIncrement
+        };
+      });
+    }, 100);
+
+    return () => clearInterval(intervalId);
+  
+}, []);
 
   return (
     <group ref={group} dispose={null} >
@@ -56,36 +76,23 @@ export default function Projects() {
           >
             <div className="projects-main">
 
-              <div className="projects-nav">
-                <NavigationButtons />
-              </div>  
 
-                <div className="projects-projects">   
-
-                  <div className="kanjiApp">
-                    
-                      <h3><a href="https://kanjapp-ts-vineyardcode.vercel.app/">Kanji App</a></h3>
-                      <p><b>Reviews kanji</b></p>
-                      <p><b>Creates anki decks <br/> with animated <br/> stroke orders</b></p>
-                      <p><b>and more...</b></p>
-
-                  </div>  
-                  
-                  <div className="codePen">
-                    
-                    <h3><a href='https://codepen.io/vineyardcode'>CodePen</a></h3>   
-                    <FaCodepen size={39} color='rgb(79, 32, 171)'/>
-                    <p><b>small scale projects <br/> and sketches</b></p>
-                    
-                  </div>
-                  
-                </div> 
 
             </div>
           </Html>
+          <Html
+          className="tag-hexa"  
+          transform occlude="blending" 
+          rotation={[-Math.PI/2,0,0]} 
+          position={[0,2,23]}
+          style={{ width: "500px", height: "100px" }}
+          >
+            <a href="https://tunnelvision.vercel.app/">HEXAGORE</a>
+              
+        </Html>
           
       </mesh>
-      <ContactShadows position={[0, -3, 0]} scale={30} blur={2} far={15} />
+
     </group>
   );
 }
