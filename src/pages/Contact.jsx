@@ -74,7 +74,7 @@ export default function Contact() {
           position={[0,1,15]}
           style={{ width: "500px", height: "100px" }}
           >
-            <a href="https://tunnelvision.vercel.app/">TUNNELVISION AUDIOVISUALIZER</a>
+            <a href="https://tunnelvision.vercel.app/">TUNNELVISION</a>
               
         </Html>
 

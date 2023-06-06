@@ -1,9 +1,24 @@
-.projects  {
 
+
+.main {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  margin: 0;
+  padding: 0;
+
+
+  background-image: url('/img/pic9.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .projects iframe {
@@ -27,16 +42,12 @@
 
 
 
-
-
-
-
 .background-grid {
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
-  --s: 15px;  /* size  */
+  --s: 25px;  /* size  */
   --m: 30px;    /* margin */
   --f: calc(var(--s) + 4*var(--m));
   z-index: 1;
@@ -52,12 +63,11 @@
   height: var(--s); 
   display: inline-block;
   font-size:initial;
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  /* opacity: 0.5; */
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
   background-color: transparent;
   margin-bottom: calc(var(--m) - var(--s)*0.5);
   transition: all 0.69s ease-in-out;
-
+  
 }
 
 .container::before {
@@ -71,19 +81,19 @@
 }
 
 .butTouchedTooLittle {
-  transform: scale(1.5);
+  transform: scale(1);
   rotate: 45deg;
 }
 
 .touched {
  
-  transform: scale(2.5);
+  transform: scale(2);
   rotate: 45deg;
   
 }
 
 .andTouchedTooMuch {
-  transform: scale(5);
+  transform: scale(3);
   rotate: 45deg;
   
 }

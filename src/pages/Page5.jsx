@@ -8,9 +8,9 @@ import '../styles/page5.css';
 export default function Page5() {
   const group = useRef();
   const mesh = useRef();
-  const iframeRef = useRef();
+  // const iframeRef = useRef();
 
-  const [iframeKey, setIframeKey] = useState(0);
+  // const [iframeKey, setIframeKey] = useState(0);
 
 
   useFrame((state) => {
@@ -23,22 +23,21 @@ export default function Page5() {
     );
   });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIframeKey(prevKey => prevKey + 1);
-    }, 1000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setIframeKey(prevKey => prevKey + 1);
+  //   }, 1000);
 
-    if (iframeKey >= 5) {
-      clearInterval(interval);
-    }
+  //   if (iframeKey >= 5) {
+  //     clearInterval(interval);
+  //   }
 
-    return () => {
-      clearInterval(interval);
-    };
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
       
-  }, [iframeKey]);
-  
-  console.log(iframeKey);
+  // }, [iframeKey]);
+
   return (
     <group ref={group} dispose={null}>
       <mesh ref={mesh}>
@@ -53,13 +52,13 @@ export default function Page5() {
         >
           <iframe
             src="/gif/heartandball.gif"
-            key={iframeKey}
+            // key={iframeKey}
             width="592px"
             height="727px"
             title="ball"
             frameBorder={0}
             allowFullScreen
-            ref={iframeRef}
+            // ref={iframeRef}
 
           ></iframe>
           
@@ -71,7 +70,7 @@ export default function Page5() {
           position={[0,3,15]}
           style={{ width: "500px", height: "100px" }}
           >
-            <a href="https://heartandball.vercel.app/">HEART & BALL</a>
+            <a href="https://heartandball.vercel.app/">BALL & CUBE & BALL </a>
               
         </Html>
       </mesh>
