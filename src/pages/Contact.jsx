@@ -7,7 +7,6 @@ import { gsap } from 'gsap';
 import { refs } from "../components/Refs";
 import NavigationButtons from "../components/NavModal";
 import '../styles/contact.css'
-import EmailForm from "../components/EmailForm";
 
 
 
