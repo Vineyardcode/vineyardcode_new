@@ -48,7 +48,7 @@
   height: 100%;
   display: flex;
   --s: 25px;  /* size  */
-  --m: 30px;    /* margin */
+  --m: 29px;    /* margin */
   --f: calc(var(--s) + 4*var(--m));
   z-index: 1;
 }
@@ -70,6 +70,8 @@
   
 }
 
+
+
 .container::before {
   content: "";
   width: calc(var(--s)/2 + var(--m));
@@ -82,19 +84,19 @@
 
 .butTouchedTooLittle {
   transform: scale(1);
-  rotate: 45deg;
+  
 }
 
 .touched {
  
   transform: scale(2);
-  rotate: 45deg;
+  
   
 }
 
 .andTouchedTooMuch {
   transform: scale(3);
-  rotate: 45deg;
+  
   
 }
 
