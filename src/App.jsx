@@ -181,7 +181,7 @@ export default function App() {
         maxZoom={35}
       />
 
-     <Environment preset="sunset" /> 
+      <Environment preset="sunset" /> 
 
       <Controls />
       </Canvas>
