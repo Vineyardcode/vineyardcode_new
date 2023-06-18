@@ -11,7 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@react-three/csg": "^2.2.0",
-    "@react-three/drei": "^9.66.4",
+    "@react-three/drei": "^9.76.0",
     "@react-three/fiber": "^8.13.0",
     "gsap": "^3.11.5",
     "hold-event": "^0.2.0",
